@@ -1,0 +1,21 @@
+//base
+@use "../base/reset";
+@use "../abstracts/typography";
+@use "_container";
+
+//components
+@use "../components/artistspotlight";
+@use "../components/banner";
+@use "../components/dropdown";
+@use "../components/articlespotlight";
+
+//navigation
+@use "../base/navbar";
+@use "../base/footer";
+
+//pages
+@use "../pages/about";
+@use "../pages/articles";
+@use "../pages/cart";
+@use "../pages/frontpage";
+@use "../pages/products";

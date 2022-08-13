@@ -1,0 +1,38 @@
+@use "../abstracts" as a;
+
+#navbar {
+  background: a.$white;
+  height: 100px;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid a.$sm-black-line;
+}
+
+.navbar-header {
+  background: a.$black;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.navbar-header > .container {
+  @include a.flexRowReverse();
+  gap: 0.5rem;
+}
+
+.navbar-container li {
+  display: flex;
+}
+
+.navbar-container {
+  @include a.flexRow;
+  transform: translateY(100%);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-links {
+  @include a.flexRow;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+  align-items: center;
+}

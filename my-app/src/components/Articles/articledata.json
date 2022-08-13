@@ -1,0 +1,11 @@
+[
+  { "title": "Article 1", "content": "Hello World" },
+  {
+    "title": "Article 2",
+    "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ullam, saepe explicabo eum vel molestiae veritatis omnis, natus a deleniti, iure eligendi quam quisquam maiores repellendus aspernatur atque fuga consectetur."
+  },
+  {
+    "title": "Article 3",
+    "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ullam, saepe explicabo eum vel molestiae veritatis omnis, natus a deleniti, iure eligendi quam quisquam maiores repellendus aspernatur atque fuga consectetur."
+  }
+]

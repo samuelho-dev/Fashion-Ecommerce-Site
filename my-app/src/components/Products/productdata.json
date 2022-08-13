@@ -1,0 +1,173 @@
+[
+  {
+    "productName": "Wutang Hoodie",
+    "designer": "creamy studios",
+    "category": "hoodie",
+    "sizes": ["s", "m", "l", "xl"],
+    "color": "multi",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ullam, saepe explicabo eum vel molestiae veritatis omnis, natus a deleniti, iure eligendi quam quisquam maiores repellendus aspernatur atque fuga consectetur.",
+    "price": "240"
+  },
+  {
+    "productName": "Cash Rules Hoodie",
+    "designer": "creamy studios",
+    "category": "hoodie",
+    "sizes": ["s", "m", "l", "xl"],
+    "color": "multi",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ullam, saepe explicabo eum vel molestiae veritatis omnis, natus a deleniti, iure eligendi quam quisquam maiores repellendus aspernatur atque fuga consectetur.",
+    "price": "200"
+  },
+  {
+    "productName": "Abby Hoodie",
+    "designer": "creamy studios",
+    "category": "hoodie",
+    "sizes": ["s", "m", "l", "xl"],
+    "color": "multi",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ullam, saepe explicabo eum vel molestiae veritatis omnis, natus a deleniti, iure eligendi quam quisquam maiores repellendus aspernatur atque fuga consectetur.",
+    "price": "130"
+  },
+  {
+    "productName": "Sailor Moon Sweatshirt",
+    "designer": "stonislaw",
+    "category": "sweatshirt",
+    "sizes": ["s", "m", "l", "xl"],
+    "color": "multi",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ullam, saepe explicabo eum vel molestiae veritatis omnis, natus a deleniti, iure eligendi quam quisquam maiores repellendus aspernatur atque fuga consectetur.",
+    "price": "150"
+  },
+  {
+    "productName": "Pint fiend",
+    "designer": "pint fiend",
+    "category": "rug",
+    "sizes": "one",
+    "color": "red",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ullam, saepe explicabo eum vel molestiae veritatis omnis, natus a deleniti, iure eligendi quam quisquam maiores repellendus aspernatur atque fuga consectetur.",
+    "price": "200"
+  },
+  {
+    "productName": "Eminem Anime",
+    "designer": "stonislaw",
+    "category": "sweatshirt",
+    "sizes": ["s", "m", "l", "xl"],
+    "color": "multi",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ullam, saepe explicabo eum vel molestiae veritatis omnis, natus a deleniti, iure eligendi quam quisquam maiores repellendus aspernatur atque fuga consectetur.",
+    "price": "170"
+  },
+  {
+    "productName": "Green Lighter Rug",
+    "designer": "pint fiend",
+    "category": "rug",
+    "sizes": "one",
+    "color": "green",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ullam, saepe explicabo eum vel molestiae veritatis omnis, natus a deleniti, iure eligendi quam quisquam maiores repellendus aspernatur atque fuga consectetur.",
+    "price": "210"
+  },
+  {
+    "productName": "Carti Anime Sweater",
+    "designer": "stonislaw",
+    "category": "sweatshirt",
+    "sizes": ["s", "m", "l", "xl"],
+    "color": "multi",
+    "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ullam, saepe explicabo eum vel molestiae veritatis omnis, natus a deleniti, iure eligendi quam quisquam maiores repellendus aspernatur atque fuga consectetur.",
+    "price": "310"
+  },
+  {
+    "productName": "Georgia Peach Jacket",
+    "designer": "BODE",
+    "category": "jacket",
+    "sizes": "L",
+    "color": "white",
+    "description": "All wear, mending, and idiosyncrasies are unique to the custom textile.",
+    "price": "768"
+  },
+  {
+    "productName": "M NRG BH Jacket",
+    "designer": "NIKE",
+    "category": "outerwear",
+    "sizes": ["s", "m", "l", "xl"],
+    "color": "limestone",
+    "description": "CACT.US CORP joins forces with Nike to bring you this highly adaptable take on a technical jacket made with at least 75% recycled polyester fibers. Imagined, designed, and built as a collection for the unpredictability of everyday exploration, it features GORE-TEX to keep you dry and a Polartec® lined removable hood for warmth.",
+    "price": "400"
+  },
+  {
+    "productName": "PINK QUILT LS SHIRT",
+    "designer": "BODE",
+    "category": "shirt",
+    "sizes": "M",
+    "color": "pink/white",
+    "description": "All wear, mending, and idiosyncrasies are unique to the custom textile.",
+    "price": "648"
+  },
+  {
+    "productName": "POLAR FLEECE FULL ZIP JACKET",
+    "designer": "ESSENTIALS",
+    "category": "jacket",
+    "sizes": ["s", "m", "l", "xl"],
+    "color": "dark oatmeal",
+    "description": "Los Angeles designer Jerry Lorenzo became a streetwear status symbol through his supercurrent, ready-to-wear garments. Glamor and streetwear at its finest. Fear Of God capitalizes on the enduring allure of sophisticated yet low-key basics, something you can't find every day, but at the same time, suitable for everyday wear. Once you see and feel the premium quality pursued in each garment, it will make you wish you had a piece in your closet. ",
+    "price": "120"
+  },
+  {
+    "productName": "POLAR FLEECE FULL ZIP JACKET",
+    "designer": "ESSENTIALS",
+    "category": "jacket",
+    "sizes": ["s", "m", "l", "xl"],
+    "color": "iron",
+    "description": "Los Angeles designer Jerry Lorenzo became a streetwear status symbol through his supercurrent, ready-to-wear garments. Glamor and streetwear at its finest. Fear Of God capitalizes on the enduring allure of sophisticated yet low-key basics, something you can't find every day, but at the same time, suitable for everyday wear. Once you see and feel the premium quality pursued in each garment, it will make you wish you had a piece in your closet. ",
+    "price": "150"
+  },
+  {
+    "productName": "NIKE AIR MAX 95 SE",
+    "designer": "NIKE",
+    "category": "shoes",
+    "sizes": ["8", "8.5", "9"],
+    "color": "LT IRON ORE/COBBLESTONE-FLAT PEWTER-SAIL",
+    "description": "Air Max 95 SE 'Cobblestone' ",
+    "price": "190"
+  },
+  {
+    "productName": "PARKER LOW-TOP SNEAKER",
+    "designer": "MIHARA YASUHIRO",
+    "category": "shoes",
+    "sizes": ["10", "10.5", "11"],
+    "color": "white",
+    "description": "An unexpected blending of textures and silhouettes comprises Maison Mihara Yasuhiro clothing. Raw-cut edges and oversized cuts perfectly encapsulate the label's penchant for grungy, urban design. Gritty, earthy hues marry effortlessly with abstract patches and frayed militarty-inspired belts to create unconventional tops and outerwear.Despite being active for more than 20 years and showcasing a multitude of talents ranging from footwear design to menswear that rivals couture in its thoughtfulness, Mihara Yasuhiro has remained a designer with a relatively niche following in Europe and North America.",
+    "price": "490"
+  },
+  {
+    "productName": "POPPIES DENIM PAINTER",
+    "designer": "DIVINITIES",
+    "category": "pants",
+    "sizes": ["30", "32", "34"],
+    "color": "multi",
+    "description": "Probubly one of our favorite pieces of Divinities Summer 2022 collection.",
+    "price": "220"
+  },
+  {
+    "productName": "RELAXED SWEATPANTS",
+    "designer": "ESSENTIALS",
+    "category": "pants",
+    "sizes": ["m", "l", "xl"],
+    "color": "desert taupe",
+    "description": "Los Angeles designer Jerry Lorenzo became a streetwear status symbol through his supercurrent, ready-to-wear garments. Glamor and streetwear at its finest. Fear Of God capitalizes on the enduring allure of sophisticated yet low-key basics, something you can't find every day, but at the same time, suitable for everyday wear. Once you see and feel the premium quality pursued in each garment, it will make you wish you had a piece in your closet. ",
+    "price": "90"
+  },
+  {
+    "productName": "WIDE LEG SHORT",
+    "designer": "MARTINE ROSE",
+    "category": "shorts",
+    "sizes": ["m", "xl"],
+    "color": "grey",
+    "description": "Martine Rose established her eponymous label in London in 2007. It has since evolved from a tightly edited shirting collection to an internationally renowned and critically acclaimed brand. Her innate authenticity and commitment to modernity have helped to create collections that retain their underground cult credentials while achieving global success. In addition Martine has become one of the most in demand consultants and collaborators in fashion - and for many years now has consistently influenced the direction of contemporary menswear.",
+    "price": "210"
+  },
+  {
+    "productName": "NOBLE SHORT",
+    "designer": "UNION LOS ANGELES",
+    "category": "shorts",
+    "sizes": ["s", "m", "l"],
+    "color": "navy",
+    "description": "Summer is around the corner and to go along with our printables, we have some everyday shorts for y'all. Nothing shittier than a short with no pockets, so we decidided to also attached a big utility pocket.",
+    "price": "200"
+  }
+]

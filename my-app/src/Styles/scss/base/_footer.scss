@@ -1,0 +1,16 @@
+@use "../abstracts" as a;
+
+.footer {
+  background: a.$black;
+}
+
+.footer-container,
+.footer-links {
+  @include a.flexRow;
+}
+
+.footer-container {
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: space-between;
+}

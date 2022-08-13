@@ -1,0 +1,22 @@
+@use "./variables" as v;
+
+// @font-face {
+//   font-family: "OPTInaval";
+//   src: local("OPTINaval"), url("/my-app/src/Styles/css/OPTINaval.otf");
+// }
+
+//Navbar
+
+.navbar-links p {
+  font-size: clamp(v.$xs, 2.5vw, v.$sm);
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(v.$xl, 2.5vw, v.$xxl);
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}

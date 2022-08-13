@@ -1,0 +1,31 @@
+@use "../abstracts" as a;
+
+#new-releases-cards,
+.style-container,
+#feature-spotlight {
+  @include a.flexRow;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#new-releases-container,
+.browse-by-style {
+  overflow-x: hidden;
+}
+
+.product-card,
+.style-img > img {
+  width: 100%;
+  height: auto;
+  padding: 0 1%;
+}
+
+.product-card {
+  width: 200px;
+}
+
+.style-img {
+  width: 200px;
+  aspect-ratio: 2;
+  padding: 0 1%;
+}

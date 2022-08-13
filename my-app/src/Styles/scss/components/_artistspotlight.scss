@@ -1,0 +1,23 @@
+@use "../abstracts" as a;
+
+.artist-container {
+  @include a.flexColumn;
+  padding-right: 1rem;
+}
+
+.artist-container-1 {
+  @include a.flexRow;
+  gap: 2rem;
+  border-bottom: 1px solid a.$sm-black-line;
+  padding-bottom: 1rem;
+}
+
+.artist-container-2 {
+  @include a.flexRowReverse;
+  gap: 2rem;
+  padding-top: 1rem;
+}
+
+.artist-pfp {
+  max-width: 150px;
+}
