@@ -22,27 +22,38 @@ const store = designerName.map((designer) => {
   };
 });
 
-console.log(store);
 //Dropdown selection function
-const Select = ({ value, options, onChange }) => {
-  return (
-    <select value={value} onChange={onChange}>
-      {options.map((option) => {
-        return (
-          <option key={option.value} value={option.value}>
-            {option.text}
-          </option>
-        );
-      })}
-    </select>
-  );
-};
+// const Select = ({ value, options, onChange }) => {
+//   return (
+//     <select value={value} onChange={onChange}>
+//       {options.map((option) => {
+//         return (
+//           <option key={option.value} value={option.value}>
+//             {option.text}
+//           </option>
+//         );
+//       })}
+//     </select>
+//   );
+// };
 
 export default function FilterPanel() {
   //Save current state as nothing
-  const [designer, setDesigner] = React.useState("red");
+  const [filterCriteria, setFilterCriteria] = React.useState({
+    designers: [],
+    categories: "",
+    sizes: "",
+  });
+  const [filterResults, setFilterResults] = React.useState({});
+  const sizes = ["s", "m", "l", "xl"];
+
   //Submit and change option ???
-  const handleChange = (e) => setDesigner(e.target.designer);
+  const handleChange = (e, nameFilter) => {
+    setFilterCriteria((prevState) => ({
+      ...prevState,
+      [nameFilter]: e.target.value,
+    }));
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
@@ -52,21 +63,63 @@ export default function FilterPanel() {
     console.clear();
     console.log(json);
   };
+  console.log(store);
+  console.log("hello", filterCriteria);
 
   return (
     <div className="filter-panel-container">
       <form onSubmit={handleSubmit}>
         {/* Filter by Price */}
+        <div className="price-filter">
+          <label htmlFor="price">
+            <h3>Filter by Price</h3>
+          </label>
+        </div>
+
         {/* Filter by Designer */}
         <div className="designer-filter">
           <label htmlFor="designers">
-            <h3>Designers</h3>
-            <Select value={designer} options={store} onChange={handleChange} />
+            <h3>Filter by Designer</h3>
+            <select
+              value={filterCriteria.designers}
+              onChange={(designer) => handleChange}
+            >
+              {store.map((names) => {
+                console.log(names);
+                return (
+                  <option key={names.designers} value={names.designers}>
+                    {names.designers}
+                  </option>
+                );
+              })}
+            </select>
           </label>
         </div>
-        <button type="submit">Submit</button>
+
         {/* Filter by Size */}
+        <div className="size-filter">
+          <label htmlFor="sizes">
+            <h3>Filter by Sizes</h3>
+            <select value="" onChange={handleChange}>
+              {sizes.map((ele) => {
+                return (
+                  <option key={sizes.ele} value={sizes.ele}>
+                    {sizes.ele}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
+        </div>
+
         {/* Filter by Category */}
+        <div className="category-filter">
+          <label htmlFor="category">
+            <h3>Filter by Category</h3>
+          </label>
+        </div>
+
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
