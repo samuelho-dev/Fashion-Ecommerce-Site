@@ -1,15 +1,16 @@
 import React from "react";
-import productData from "../Products/productdata.json";
+import FilterPanel from "./components/FilterPanel";
+import List from "./components/ProductList";
+import Searchbar from "./components/Searchbar";
 
 export default function Products() {
-  const productArray = productData.map((element) => element.toUppercase());
-
-  console.log(productArray);
   return (
     <div className="container">
-      {productArray.map((products) => {
-        return <div className="product-data">{products.productName}</div>;
-      })}
+      <Searchbar />
+      <div className="content-container">
+        <FilterPanel />
+        <List />
+      </div>
     </div>
   );
 }
