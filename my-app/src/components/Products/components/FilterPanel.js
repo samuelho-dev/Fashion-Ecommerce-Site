@@ -22,27 +22,12 @@ const store = designerName.map((designer) => {
   };
 });
 
-//Dropdown selection function
-// const Select = ({ value, options, onChange }) => {
-//   return (
-//     <select value={value} onChange={onChange}>
-//       {options.map((option) => {
-//         return (
-//           <option key={option.value} value={option.value}>
-//             {option.text}
-//           </option>
-//         );
-//       })}
-//     </select>
-//   );
-// };
-
 export default function FilterPanel() {
   //Save current state as nothing
   const [filterCriteria, setFilterCriteria] = React.useState({
     designers: [],
-    categories: "",
-    sizes: "",
+    categories: [],
+    sizes: [],
   });
   const [filterResults, setFilterResults] = React.useState({});
   const sizes = ["s", "m", "l", "xl"];
@@ -64,7 +49,6 @@ export default function FilterPanel() {
     console.log(json);
   };
   console.log(store);
-  console.log("hello", filterCriteria);
 
   return (
     <div className="filter-panel-container">
@@ -80,19 +64,6 @@ export default function FilterPanel() {
         <div className="designer-filter">
           <label htmlFor="designers">
             <h3>Filter by Designer</h3>
-            <select
-              value={filterCriteria.designers}
-              onChange={(designer) => handleChange}
-            >
-              {store.map((names) => {
-                console.log(names);
-                return (
-                  <option key={names.designers} value={names.designers}>
-                    {names.designers}
-                  </option>
-                );
-              })}
-            </select>
           </label>
         </div>
 
