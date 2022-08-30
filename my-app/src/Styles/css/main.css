@@ -532,4 +532,16 @@ li {
   width: 200px;
   aspect-ratio: 2;
   padding: 0 1%;
+}
+
+.product-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.display-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  justify-items: center;
 }/*# sourceMappingURL=main.css.map */

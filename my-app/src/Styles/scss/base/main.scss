@@ -1,5 +1,5 @@
 //base
-@use "../base/reset";
+@use "_reset";
 @use "../abstracts/typography";
 @use "_container";
 
@@ -10,8 +10,8 @@
 @use "../components/articlespotlight";
 
 //navigation
-@use "../base/navbar";
-@use "../base/footer";
+@use "_navbar";
+@use "_footer";
 
 //pages
 @use "../pages/about";
