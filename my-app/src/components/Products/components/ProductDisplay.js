@@ -13,3 +13,16 @@ export default function ProductPreview() {
 
   return <div className="display-container">{displayProduct}</div>;
 }
+
+// export default function ProductDisplay({ filterCriteria }) {
+//   return (
+//     <div className="display-container">
+//       <div className="image-container">
+//         <img src={filterCriteria.img.src} alt="" />
+//         <h3>{filterCriteria.designer.toUpperCase()}</h3>
+//         <p>{filterCriteria.name.toUpperCase()}</p>
+//         <p>{filterCriteria.price}</p>
+//       </div>
+//     </div>
+//   );
+// }
