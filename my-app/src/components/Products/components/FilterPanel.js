@@ -6,8 +6,7 @@ function handleSubmit(e) {
 }
 
 //Filter Categories
-export default function FilterPanel() {
-  const [filterCriteria, setFilterCriteria] = useState({});
+export default function FilterPanel({ filterCriteria, setFilterCriteria }) {
   const [filterMsg, setFilterMsg] = useState([]);
 
   const filterToggle = (e, moduleName) => {
@@ -19,18 +18,13 @@ export default function FilterPanel() {
       updatedMsg.splice(filterMsg.indexOf(e.target.value), 1);
     }
     setFilterMsg(updatedMsg);
-
-    if (!filterCriteria[moduleName]) {
-      setFilterCriteria({ ...filterCriteria, [moduleName]: e.target.value });
-    } else if (!e.target.value in filterCriteria[moduleName]) {
-      filterCriteria[moduleName].push(e.target.value);
-    }
+    setFilterCriteria({ ...filterCriteria, [moduleName]: e.target.value });
   };
   console.log(filterCriteria);
   return (
     <div className="filter-panel-container">
       <p>Current Filter : {filterMsg}</p>
-      <form onChange={handleSubmit}>
+      <form>
         {/* Filter by Price */}
         <FilterModule name="designer" filterToggle={filterToggle} />
         <FilterModule name="sizes" filterToggle={filterToggle} />
@@ -54,11 +48,11 @@ function FilterModule(props) {
   }, []);
 
   let filterArray = { name: moduleName, options: outputArray2 };
-
+  console.log(Array.isArray(outputArray2));
   return (
     <div className="filter">
       <h3>Filter by {moduleName}</h3>
-      {Object.values(filterArray.options).map((opt) => (
+      {filterArray.options.map((opt) => (
         <label>
           <input
             type="checkbox"

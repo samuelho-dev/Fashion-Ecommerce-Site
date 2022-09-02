@@ -4,6 +4,7 @@ import FilterPanel from "./components/FilterPanel";
 import ProductDisplay from "./components/ProductDisplay";
 
 export default function Products() {
+  const [filterCriteria, setFilterCriteria] = useState({});
   // this.filterCriteria.state(
   //   { name: "designer", options: [] },
   //   { name: "category", options: [] },
@@ -27,7 +28,11 @@ export default function Products() {
     <div className="container">
       <div className="content-container">
         <div className="product-container">
-          <FilterPanel products={productData} />
+          <FilterPanel
+            products={productData}
+            filterCriteria={filterCriteria}
+            setFilterCriteria={setFilterCriteria}
+          />
           <ProductDisplay />
         </div>
       </div>
