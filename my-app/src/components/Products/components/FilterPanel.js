@@ -1,45 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
+import productData from "../productdata.json";
 
 function handleSubmit(e) {
-  alert("Hello");
+  console.log("Toggled");
 }
 
 //Filter Categories
-export default function FilterPanel({ products, setFilterCriteria }) {
+export default function FilterPanel() {
+  const [filterCriteria, setFilterCriteria] = useState({});
+  const [filterMsg, setFilterMsg] = useState([]);
+
+  const filterToggle = (e, moduleName) => {
+    let updatedMsg = [...filterMsg];
+
+    if (e.target.checked) {
+      updatedMsg = [...filterMsg, e.target.value];
+    } else {
+      updatedMsg.splice(filterMsg.indexOf(e.target.value), 1);
+    }
+    setFilterMsg(updatedMsg);
+
+    if (!filterCriteria[moduleName]) {
+      setFilterCriteria({ ...filterCriteria, [moduleName]: e.target.value });
+    } else if (!e.target.value in filterCriteria[moduleName]) {
+      filterCriteria[moduleName].push(e.target.value);
+    }
+  };
+  console.log(filterCriteria);
   return (
     <div className="filter-panel-container">
-      <form onSubmit={handleSubmit}>
+      <p>Current Filter : {filterMsg}</p>
+      <form onChange={handleSubmit}>
         {/* Filter by Price */}
-        <FilterModule />
-        <button type="submit">Submit</button>
+        <FilterModule name="designer" filterToggle={filterToggle} />
+        <FilterModule name="sizes" filterToggle={filterToggle} />
+        <FilterModule name="color" filterToggle={filterToggle} />
+        <FilterModule name="category" filterToggle={filterToggle} />
       </form>
     </div>
   );
 }
 
-function FilterModule({ products }) {
-  const filterOptions = [
-    { name: "designer", options: [...designerOptions] },
-    { name: "category", options: [...categoryOptions] },
-    { name: "sizes", options: [...sizesOptions] },
-    { name: "color", options: [...colorOptions] },
-  ];
+function FilterModule(props) {
+  const moduleName = props.name;
 
-  // Keys of products object
-  // compare keys of product to sections
-  // if true
-  // return
-  // label & input with array of product values
+  //Import and reduce duplicate array
+  const outputArray1 = productData.map((obj) => obj[moduleName].toUpperCase());
+  const outputArray2 = outputArray1.reduce((previousValue, currentValue) => {
+    if (previousValue.indexOf(currentValue) === -1) {
+      previousValue.push(currentValue);
+    }
+    return previousValue;
+  }, []);
+
+  let filterArray = { name: moduleName, options: outputArray2 };
 
   return (
-    //  { /* all four filters in one */ }
-    // filterOptions.map(opt => (
     <div className="filter">
-      <h3>Filter by Category</h3>
-      <label>
-        <input type="checkbox" />
-        Here
-      </label>
+      <h3>Filter by {moduleName}</h3>
+      {Object.values(filterArray.options).map((opt) => (
+        <label>
+          <input
+            type="checkbox"
+            value={opt}
+            option={opt}
+            key={opt}
+            onChange={(e) => {
+              props.filterToggle(e, moduleName);
+            }}
+          />
+          {opt}
+        </label>
+      ))}
     </div>
   );
 }

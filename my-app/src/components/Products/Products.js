@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import productData from "./productdata.json";
 import FilterPanel from "./components/FilterPanel";
 import ProductDisplay from "./components/ProductDisplay";
 
 export default function Products() {
-  const [filterCriteria, setFilterCriteria] = useState("All");
+  // this.filterCriteria.state(
+  //   { name: "designer", options: [] },
+  //   { name: "category", options: [] },
+  //   { name: "sizes", options: [] },
+  //   { name: "color", options: [] }
+  // );
+  // console.log(filterCriteria);
   // const [displayedProducts, setDisplayedProducts] = useState("");
 
   //filter by filterCriteria
@@ -21,11 +27,8 @@ export default function Products() {
     <div className="container">
       <div className="content-container">
         <div className="product-container">
-          <FilterPanel
-            products={productData}
-            setFilterCriteria={setFilterCriteria}
-          />
-          <ProductDisplay filterCriteria={filterCriteria} />
+          <FilterPanel products={productData} />
+          <ProductDisplay />
         </div>
       </div>
     </div>

@@ -3,12 +3,9 @@ import productData from "../Products/productdata.json";
 
 export default function Designers() {
   //Uses productData to access designer name
-  const importArray = productData.map((product) => product.designer);
-
-  //All uppercase
-  const designerArray = importArray.map((element) => {
-    return element.toUpperCase();
-  });
+  const designerArray = productData.map((product) =>
+    product.designer.toUpperCase()
+  );
 
   //Filters duplicate designers and sorts alphabetically
   const designerName = designerArray

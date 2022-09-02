@@ -544,4 +544,9 @@ li {
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
   justify-items: center;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
 }/*# sourceMappingURL=main.css.map */
