@@ -4,14 +4,43 @@ import FilterPanel from "./components/FilterPanel";
 import ProductDisplay from "./components/ProductDisplay";
 
 export default function Products() {
-  const [filterCriteria, setFilterCriteria] = useState({});
-  // this.filterCriteria.state(
-  //   { name: "designer", options: [] },
-  //   { name: "category", options: [] },
-  //   { name: "sizes", options: [] },
-  //   { name: "color", options: [] }
-  // );
-  // console.log(filterCriteria);
+  const [filterCriteria, setFilterCriteria] = useState([]);
+  const [filteredProducts, setFilteredProduct] = useState(productData);
+
+  const filter = () => {
+    for (const filter in filterCriteria) {
+      console.log(filterCriteria);
+      console.log(filter);
+      if (filter === "designer") {
+        setFilteredProduct(
+          filteredProducts[filter].filter((item) =>
+            item.toUpperCase().includes(filterCriteria[filter])
+          )
+        );
+      } else if (filter === "sizes") {
+        setFilteredProduct(
+          filteredProducts[filter].filter((item) =>
+            item.toUpperCase().includes(filterCriteria[filter])
+          )
+        );
+      } else if (filter === "color") {
+        setFilteredProduct(
+          filteredProducts[filter].filter((item) =>
+            item.toUpperCase().includes(filterCriteria[filter])
+          )
+        );
+      } else if (filter === "category") {
+        setFilteredProduct(
+          filteredProducts[filter].filter((item) =>
+            item.toUpperCase().includes(filterCriteria[filter])
+          )
+        );
+      } else {
+        return;
+      }
+    }
+    console.log(filteredProducts);
+  };
   // const [displayedProducts, setDisplayedProducts] = useState("");
 
   //filter by filterCriteria
@@ -19,10 +48,6 @@ export default function Products() {
 
   //Use Effect when filterCriteria changes
   // Rerender displayedProduct with filterCriteria
-  // useEffect(() => {
-  //   console.log('filter updated')
-
-  // },[filterCriteria])
 
   return (
     <div className="container">
@@ -32,8 +57,12 @@ export default function Products() {
             products={productData}
             filterCriteria={filterCriteria}
             setFilterCriteria={setFilterCriteria}
+            filter={filter}
           />
-          <ProductDisplay />
+          <ProductDisplay
+            filterCriteria={filterCriteria}
+            products={productData}
+          />
         </div>
       </div>
     </div>

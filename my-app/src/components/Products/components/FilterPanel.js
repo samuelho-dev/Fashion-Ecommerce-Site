@@ -1,26 +1,43 @@
 import React, { useState } from "react";
 import productData from "../productdata.json";
 
-function handleSubmit(e) {
-  console.log("Toggled");
-}
-
 //Filter Categories
-export default function FilterPanel({ filterCriteria, setFilterCriteria }) {
+export default function FilterPanel({
+  filterCriteria,
+  setFilterCriteria,
+  filter,
+}) {
   const [filterMsg, setFilterMsg] = useState([]);
 
   const filterToggle = (e, moduleName) => {
     let updatedMsg = [...filterMsg];
+    const currArray = filterCriteria[moduleName];
 
+    //Check if box is checked
     if (e.target.checked) {
       updatedMsg = [...filterMsg, e.target.value];
+
+      //If values do not exist then create new object
+      if (!currArray) {
+        setFilterCriteria([
+          {
+            ...filterCriteria,
+            [moduleName]: [e.target.value],
+          },
+        ]);
+      } else {
+        currArray.push(e.target.value);
+      }
     } else {
       updatedMsg.splice(filterMsg.indexOf(e.target.value), 1);
+      currArray.splice(currArray.indexOf(e.target.value), 1);
     }
     setFilterMsg(updatedMsg);
-    setFilterCriteria({ ...filterCriteria, [moduleName]: e.target.value });
+    filter();
+
+    console.log(Array.isArray(filterCriteria["designer"]));
   };
-  console.log(filterCriteria);
+
   return (
     <div className="filter-panel-container">
       <p>Current Filter : {filterMsg}</p>
@@ -48,7 +65,7 @@ function FilterModule(props) {
   }, []);
 
   let filterArray = { name: moduleName, options: outputArray2 };
-  console.log(Array.isArray(outputArray2));
+
   return (
     <div className="filter">
       <h3>Filter by {moduleName}</h3>

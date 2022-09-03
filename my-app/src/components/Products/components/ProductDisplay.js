@@ -1,7 +1,7 @@
 import React from "react";
 import productData from "../productdata.json";
 
-export default function ProductPreview() {
+export default function ProductDisplay() {
   const displayProduct = productData.map((product) => (
     <div className="image-container">
       <h3>{product.designer.toUpperCase()}</h3>
