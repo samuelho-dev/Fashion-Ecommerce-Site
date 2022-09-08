@@ -16,7 +16,7 @@ import StyleImg5 from "../images/techwear.png";
 
 export default function Frontpage() {
   return (
-    <div className="container" id="main">
+    <>
       <Banner />
       <section id="new-releases-container">
         <h2>New Releases</h2>
@@ -68,6 +68,6 @@ export default function Frontpage() {
         </div>
       </section>
       <FeatureSpotlight />
-    </div>
+    </>
   );
 }

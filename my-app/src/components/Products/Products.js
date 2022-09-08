@@ -1,47 +1,48 @@
-import React, { useState } from "react";
+import React, { useReducer, useRef, useState } from "react";
 import productData from "./productdata.json";
 import FilterPanel from "./components/FilterPanel";
 import ProductDisplay from "./components/ProductDisplay";
 
 export default function Products() {
-  const [filterCriteria, setFilterCriteria] = useState([]);
-  const [filteredProducts, setFilteredProduct] = useState(productData);
+  const [filterCriteria, setFilterCriteria] = useState({
+    designer: [],
+    sizes: [],
+    color: [],
+    category: [],
+  });
+  console.log(filterCriteria);
+
+  // function reducer(state, action) {
+  //   switch (action.type) {
+  //     case 'filterOn' :
+  //       return
+  //     case 'filterOff' :
+  //       return productData
+  //     default :
+  //       return productData
+  //   }
+  // }
+
+  // const [filterOnOff, dispatch] = useReducer(reducer, productData)
+  const [displayedProducts, setDisplayedProducts] = useState(productData);
+  let updatedProducts = [];
 
   const filter = () => {
-    for (const filter in filterCriteria) {
-      console.log(filterCriteria);
-      console.log(filter);
-      if (filter === "designer") {
-        setFilteredProduct(
-          filteredProducts[filter].filter((item) =>
-            item.toUpperCase().includes(filterCriteria[filter])
-          )
-        );
-      } else if (filter === "sizes") {
-        setFilteredProduct(
-          filteredProducts[filter].filter((item) =>
-            item.toUpperCase().includes(filterCriteria[filter])
-          )
-        );
-      } else if (filter === "color") {
-        setFilteredProduct(
-          filteredProducts[filter].filter((item) =>
-            item.toUpperCase().includes(filterCriteria[filter])
-          )
-        );
-      } else if (filter === "category") {
-        setFilteredProduct(
-          filteredProducts[filter].filter((item) =>
-            item.toUpperCase().includes(filterCriteria[filter])
-          )
-        );
-      } else {
-        return;
+    for (const key in filterCriteria) {
+      const currFilter = filterCriteria[key];
+      for (let i = 0; i < currFilter.length; i++) {
+        console.log(currFilter[i].toUpperCase());
+        console.log(key);
+        productData.filter((obj) => {
+          if (obj[key].toUpperCase() === currFilter[i].toUpperCase()) {
+            return updatedProducts.push(obj);
+          }
+        });
       }
     }
-    console.log(filteredProducts);
+    console.log(updatedProducts);
+    setDisplayedProducts(updatedProducts);
   };
-  // const [displayedProducts, setDisplayedProducts] = useState("");
 
   //filter by filterCriteria
   //return productdata that meets FilterCriteria
@@ -50,7 +51,7 @@ export default function Products() {
   // Rerender displayedProduct with filterCriteria
 
   return (
-    <div className="container">
+    <>
       <div className="content-container">
         <div className="product-container">
           <FilterPanel
@@ -59,12 +60,9 @@ export default function Products() {
             setFilterCriteria={setFilterCriteria}
             filter={filter}
           />
-          <ProductDisplay
-            filterCriteria={filterCriteria}
-            products={productData}
-          />
+          <ProductDisplay displayedProducts={displayedProducts} />
         </div>
       </div>
-    </div>
+    </>
   );
 }

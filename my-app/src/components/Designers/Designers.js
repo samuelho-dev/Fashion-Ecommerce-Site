@@ -30,7 +30,7 @@ export default function Designers() {
 
   console.log(store);
   return (
-    <div className="container">
+    <>
       <div className="designer-container">
         {store.map((cat) => (
           <ul>
@@ -43,6 +43,6 @@ export default function Designers() {
           </ul>
         ))}
       </div>
-    </div>
+    </>
   );
 }

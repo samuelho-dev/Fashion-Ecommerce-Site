@@ -17,6 +17,26 @@ h1 {
   margin: 0;
 }
 
+h2 {
+  font-size: clamp(v.$lg, 2.5vw, v.$xl);
+  margin: 0;
+}
+
+h3 {
+  font-size: clamp(v.$md, 2.5vw, v.$sm);
+  margin: 0;
+}
+
+h5 {
+  font-size: clamp(v.$xs, 2.5vw, v.$sm);
+  margin: 0;
+}
+
+p {
+  font-size: clamp(v.$xxs, 2.5vw, v.$xs);
+  margin: 0;
+}
+
 li {
   list-style: none;
 }

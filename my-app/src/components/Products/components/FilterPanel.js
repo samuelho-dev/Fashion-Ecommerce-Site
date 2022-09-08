@@ -11,35 +11,30 @@ export default function FilterPanel({
 
   const filterToggle = (e, moduleName) => {
     let updatedMsg = [...filterMsg];
-    const currArray = filterCriteria[moduleName];
+    let updatedFilter = { ...filterCriteria };
 
-    //Check if box is checked
-    if (e.target.checked) {
-      updatedMsg = [...filterMsg, e.target.value];
-
-      //If values do not exist then create new object
-      if (!currArray) {
-        setFilterCriteria([
-          {
-            ...filterCriteria,
-            [moduleName]: [e.target.value],
-          },
-        ]);
+    //Loop --- duplicate
+    for (const key in updatedFilter) {
+      //Check if box is checked
+      if (e.target.checked) {
+        updatedMsg = [...filterMsg, e.target.value];
+        if (key === moduleName) {
+          updatedFilter[key].push(e.target.value);
+        }
       } else {
-        currArray.push(e.target.value);
+        updatedMsg.splice(filterMsg.indexOf(e.target.value), 1);
+        if (key === moduleName) {
+          updatedFilter[key].splice(updatedFilter[key].indexOf(e.target.value));
+        }
       }
-    } else {
-      updatedMsg.splice(filterMsg.indexOf(e.target.value), 1);
-      currArray.splice(currArray.indexOf(e.target.value), 1);
     }
+    setFilterCriteria(updatedFilter);
     setFilterMsg(updatedMsg);
     filter();
-
-    console.log(Array.isArray(filterCriteria["designer"]));
   };
 
   return (
-    <div className="filter-panel-container">
+    <div className="filterpanel-container">
       <p>Current Filter : {filterMsg}</p>
       <form>
         {/* Filter by Price */}
@@ -55,7 +50,7 @@ export default function FilterPanel({
 function FilterModule(props) {
   const moduleName = props.name;
 
-  //Import and reduce duplicate array
+  //Import and reduce duplicates in array
   const outputArray1 = productData.map((obj) => obj[moduleName].toUpperCase());
   const outputArray2 = outputArray1.reduce((previousValue, currentValue) => {
     if (previousValue.indexOf(currentValue) === -1) {
@@ -64,23 +59,26 @@ function FilterModule(props) {
     return previousValue;
   }, []);
 
+  //defined array output
   let filterArray = { name: moduleName, options: outputArray2 };
 
   return (
     <div className="filter">
-      <h3>Filter by {moduleName}</h3>
+      <label>
+        <h3>Filter by {moduleName}</h3>
+      </label>
       {filterArray.options.map((opt) => (
         <label>
-          <input
-            type="checkbox"
-            value={opt}
-            option={opt}
-            key={opt}
-            onChange={(e) => {
-              props.filterToggle(e, moduleName);
-            }}
-          />
-          {opt}
+          <div className="filter-item">
+            <input
+              type="checkbox"
+              value={opt}
+              onClick={(e) => {
+                props.filterToggle(e, moduleName);
+              }}
+            />
+            <p>{opt}</p>
+          </div>
         </label>
       ))}
     </div>

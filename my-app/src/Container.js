@@ -36,7 +36,9 @@ export default function Container() {
   return (
     <div>
       <Navbar />
-      {content}
+      <div className="container" id="main">
+        {content}
+      </div>
       <Footer />
     </div>
   );
