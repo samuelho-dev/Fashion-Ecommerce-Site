@@ -7,15 +7,19 @@
   border-bottom: 1px solid a.$sm-black-line;
 }
 
-.navbar-header {
+.icon-container {
   background: a.$black;
-  margin: 0;
-  padding: 0.5rem 0;
 }
 
-.navbar-header > .container {
+.navbar-header {
   @include a.flexRowReverse();
+  margin: 0;
+  padding: 0.5rem 0;
   gap: 0.5rem;
+  max-width: a.$xl-container;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .navbar-container li {
@@ -27,6 +31,10 @@
   transform: translateY(100%);
   align-items: center;
   justify-content: space-between;
+  max-width: a.$xl-container;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .navbar-links {

@@ -6,8 +6,8 @@ import ShoppingCartSVG from "../images/icons/shopping-cart.svg";
 export default function Navbar() {
   return (
     <nav id="navbar">
-      <ul className="navbar-header">
-        <div className="container">
+      <div className="icon-container">
+        <ul className="navbar-header">
           <CustomLink href="/shopping-cart">
             <img src={ShoppingCartSVG} alt="/" />
           </CustomLink>
@@ -17,35 +17,33 @@ export default function Navbar() {
           <CustomLink href="/user">
             <img src={UserSVG} alt="/" />
           </CustomLink>
-        </div>
-      </ul>
-      <div className="container">
-        <div className="navbar-container">
-          <CustomLink href="/Home" className="logo">
-            <h1>Streetwear Store</h1>
+        </ul>
+      </div>
+      <div className="navbar-container">
+        <CustomLink href="/Home" className="logo">
+          <h1>Streetwear Store</h1>
+        </CustomLink>
+        <ul className="navbar-links">
+          <CustomLink href="/Designers">
+            <p>DESIGNERS</p>
           </CustomLink>
-          <ul className="navbar-links">
-            <CustomLink href="/Designers">
-              <p>DESIGNERS</p>
-            </CustomLink>
-            <CustomLink href="/Products">
-              <p>PRODUCTS</p>
-            </CustomLink>
-            <CustomLink href="/Articles">
-              <p>ARTICLES</p>
-            </CustomLink>
-            <CustomLink href="/About">
-              <p>ABOUT</p>
-            </CustomLink>
-          </ul>
-          <div className="searchwrapper">
-            <label htmlFor="search" />
-            <input
-              type="search"
-              id="search"
-              placeholder="What are you looking for?"
-            />
-          </div>
+          <CustomLink href="/Products">
+            <p>PRODUCTS</p>
+          </CustomLink>
+          <CustomLink href="/Articles">
+            <p>ARTICLES</p>
+          </CustomLink>
+          <CustomLink href="/About">
+            <p>ABOUT</p>
+          </CustomLink>
+        </ul>
+        <div className="searchwrapper">
+          <label htmlFor="search" />
+          <input
+            type="search"
+            id="search"
+            placeholder="What are you looking for?"
+          />
         </div>
       </div>
     </nav>

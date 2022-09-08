@@ -474,16 +474,20 @@ li {
   border-bottom: 1px solid rgba(30, 32, 25, 0.2);
 }
 
-.navbar-header {
+.icon-container {
   background: #1e2019;
-  margin: 0;
-  padding: 0.5rem 0;
 }
 
-.navbar-header > .container {
+.navbar-header {
   display: flex;
   flex-direction: row-reverse;
+  margin: 0;
+  padding: 0.5rem 0;
   gap: 0.5rem;
+  max-width: 1140px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .navbar-container li {
@@ -496,6 +500,10 @@ li {
   transform: translateY(100%);
   align-items: center;
   justify-content: space-between;
+  max-width: 1140px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .navbar-links {
@@ -557,6 +565,10 @@ li {
 .filterpanel-container {
   border-right: 1px solid rgba(30, 32, 25, 0.6);
   padding-right: 2rem;
+}
+
+.display-container {
+  padding-left: 1rem;
 }
 
 .filter {

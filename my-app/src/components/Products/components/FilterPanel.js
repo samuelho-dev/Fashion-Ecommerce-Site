@@ -28,7 +28,7 @@ export default function FilterPanel({
         }
       }
     }
-    setFilterCriteria(updatedFilter);
+    setFilterCriteria(...filterCriteria, updatedFilter);
     setFilterMsg(updatedMsg);
     filter();
   };
