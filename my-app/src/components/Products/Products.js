@@ -24,24 +24,39 @@ export default function Products() {
   // }
 
   // const [filterOnOff, dispatch] = useReducer(reducer, productData)
+
+  //loop thru productData
+  //loop thru filterCriteria
+  // conditional to check item in filter & value of productData[key]
+
   const [displayedProducts, setDisplayedProducts] = useState(productData);
   let updatedProducts = [];
 
   const filter = () => {
+    let productsByKey = [];
     for (const key in filterCriteria) {
       const currFilter = filterCriteria[key];
       for (let i = 0; i < currFilter.length; i++) {
-        console.log(currFilter[i].toUpperCase());
+        // console.log(currFilter[i].toUpperCase());
         console.log(key);
-        productData.filter((obj) => {
-          if (obj[key].toUpperCase() === currFilter[i].toUpperCase()) {
-            return updatedProducts.push(obj);
-          }
+
+        productsByKey = productData.filter((obj) => {
+          console.log(obj[key]);
+          const variable1 = obj[key];
+          const variable2 = currFilter[i];
+          if (typeof variable1 !== "string" || typeof variable2 !== "string")
+            return false;
+          console.table(variable1, variable2);
+
+          return obj[key].toUpperCase() === currFilter[i].toUpperCase();
         });
       }
+      updatedProducts.push(...productsByKey);
     }
-    console.log(updatedProducts);
-    setDisplayedProducts(updatedProducts);
+    console.log("🔥", updatedProducts);
+    setDisplayedProducts((prevState) => {
+      return [...prevState, ...productsByKey];
+    });
   };
 
   //filter by filterCriteria

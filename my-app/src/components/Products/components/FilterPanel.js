@@ -24,7 +24,10 @@ export default function FilterPanel({
       } else {
         updatedMsg.splice(filterMsg.indexOf(e.target.value), 1);
         if (key === moduleName) {
-          updatedFilter[key].splice(updatedFilter[key].indexOf(e.target.value));
+          // updatedFilter[key].splice(updatedFilter[key].indexOf(e.target.value));
+          updatedFilter[key] = updatedFilter[key].filter(
+            (x) => x !== e.target.value
+          );
         }
       }
     }
