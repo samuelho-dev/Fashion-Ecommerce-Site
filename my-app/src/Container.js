@@ -5,7 +5,6 @@ import Designers from "../src/components/Designers/Designers";
 import Products from "./components/Products/Products";
 import Articles from "./components/Articles/Articles";
 import About from "./components/About/About";
-import Cart from "../src/components/Products/Cart";
 import Footer from "./components/Navigation/Footer";
 
 export default function Container() {
@@ -28,9 +27,6 @@ export default function Container() {
       break;
     case "/About":
       content = <About />;
-      break;
-    case "/Cart":
-      content = <Cart />;
       break;
   }
   return (

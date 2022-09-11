@@ -1,0 +1,56 @@
+@use "../abstracts" as a;
+
+.cartposition {
+  position: relative;
+  padding: inherit;
+}
+
+.shoppingcart {
+  z-index: 99;
+  position: absolute;
+  background: white;
+  border: 1px solid black;
+  right: 0;
+  height: 400px;
+  width: 15rem;
+  padding: 1rem;
+  border-radius: 2%;
+}
+
+.cartheader {
+  border-bottom: 1px solid a.$lg-black-line;
+}
+
+.item-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid a.$md-black-line;
+}
+
+.price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.quantity-input {
+  width: 1.5rem;
+}
+
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid a.$lg-black-line;
+  padding: 1rem 0 1rem 0;
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout-btn {
+  padding: 1rem;
+}

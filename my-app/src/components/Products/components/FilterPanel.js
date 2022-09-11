@@ -54,24 +54,30 @@ function FilterModule(props) {
   const moduleName = props.name;
 
   //Import and reduce duplicates in array
-  const outputArray1 = productData.map((obj) => obj[moduleName].toUpperCase());
-  const outputArray2 = outputArray1.reduce((previousValue, currentValue) => {
-    if (previousValue.indexOf(currentValue) === -1) {
-      previousValue.push(currentValue);
+  let outputArray = [];
+  for (const obj of productData) {
+    if (moduleName === "sizes") {
+      obj[moduleName].forEach((el) => {
+        if (!outputArray.includes(el.toUpperCase())) {
+          outputArray.push(el);
+        }
+      });
+    } else {
+      if (!outputArray.includes(obj[moduleName].toUpperCase())) {
+        outputArray.push(obj[moduleName].toUpperCase());
+      }
     }
-    return previousValue;
-  }, []);
-
+  }
   //defined array output
-  let filterArray = { name: moduleName, options: outputArray2 };
+  let filterArray = { name: moduleName, options: outputArray };
 
   return (
     <div className="filter">
       <label>
         <h3>Filter by {moduleName}</h3>
       </label>
-      {filterArray.options.map((opt) => (
-        <label>
+      {filterArray.options.map((opt, index) => (
+        <label key={index}>
           <div className="filter-item">
             <input
               type="checkbox"

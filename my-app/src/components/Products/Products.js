@@ -1,4 +1,4 @@
-import React, { useReducer, useRef, useState } from "react";
+import React, { useState } from "react";
 import productData from "./productdata.json";
 import FilterPanel from "./components/FilterPanel";
 import ProductDisplay from "./components/ProductDisplay";
@@ -12,52 +12,43 @@ export default function Products() {
   });
   console.log(filterCriteria);
 
-  // function reducer(state, action) {
-  //   switch (action.type) {
-  //     case 'filterOn' :
-  //       return
-  //     case 'filterOff' :
-  //       return productData
-  //     default :
-  //       return productData
-  //   }
-  // }
-
-  // const [filterOnOff, dispatch] = useReducer(reducer, productData)
-
-  //loop thru productData
-  //loop thru filterCriteria
-  // conditional to check item in filter & value of productData[key]
-
   const [displayedProducts, setDisplayedProducts] = useState(productData);
-  let updatedProducts = [];
 
+  let count = 0;
   const filter = () => {
-    let productsByKey = [];
-    for (const key in filterCriteria) {
-      const currFilter = filterCriteria[key];
-      for (let i = 0; i < currFilter.length; i++) {
-        // console.log(currFilter[i].toUpperCase());
-        console.log(key);
-
-        productsByKey = productData.filter((obj) => {
-          console.log(obj[key]);
-          const variable1 = obj[key];
-          const variable2 = currFilter[i];
-          if (typeof variable1 !== "string" || typeof variable2 !== "string")
-            return false;
-          console.table(variable1, variable2);
-
-          return obj[key].toUpperCase() === currFilter[i].toUpperCase();
-        });
-      }
-      updatedProducts.push(...productsByKey);
+    for (const filterKey in filterCriteria) {
+      count += filterCriteria[filterKey].length;
     }
-    console.log("🔥", updatedProducts);
-    setDisplayedProducts((prevState) => {
-      return [...prevState, ...productsByKey];
-    });
+    console.log(count);
+
+    if (count === 0) {
+      setDisplayedProducts(productData);
+    } else {
+      let productsByKey = productData.filter((item) => {
+        for (const filterKey in filterCriteria) {
+          const currFilterArr = filterCriteria[filterKey];
+
+          for (let i = 0; currFilterArr.length; i++) {
+            const currFilter = currFilterArr[i];
+            const currItem = item[filterKey].toUpperCase();
+            // console.log(currFilter);
+            // console.log(currItem);
+            return currItem === currFilter;
+          }
+        }
+      });
+      console.log(productsByKey);
+      // setDisplayedProducts((prevState) => {
+      //   return [...prevState, ...productsByKey];
+      // });
+      setDisplayedProducts(productsByKey);
+    }
   };
+
+  function addToCart(e) {
+    e.preventDefault();
+    console.log(e.target.value);
+  }
 
   //filter by filterCriteria
   //return productdata that meets FilterCriteria
@@ -75,7 +66,10 @@ export default function Products() {
             setFilterCriteria={setFilterCriteria}
             filter={filter}
           />
-          <ProductDisplay displayedProducts={displayedProducts} />
+          <ProductDisplay
+            displayedProducts={displayedProducts}
+            addToCart={addToCart}
+          />
         </div>
       </div>
     </>

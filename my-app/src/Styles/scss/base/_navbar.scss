@@ -44,3 +44,15 @@
   gap: 1rem;
   align-items: center;
 }
+
+.cart-num {
+  position: absolute;
+  color: white;
+  background: red;
+  align-items: center;
+  border-radius: 100%;
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  transform: translate(70%);
+}

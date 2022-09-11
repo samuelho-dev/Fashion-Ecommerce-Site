@@ -2,15 +2,23 @@ import React from "react";
 import UserSVG from "../images/icons/user.svg";
 import FavoritesSVG from "../images/icons/heart.svg";
 import ShoppingCartSVG from "../images/icons/shopping-cart.svg";
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 export default function Navbar() {
+  const handleShoppingCart = (e) => {
+    console.log(e.target.id);
+  };
+
   return (
     <nav id="navbar">
       <div className="icon-container">
         <ul className="navbar-header">
-          <CustomLink href="/shopping-cart">
-            <img src={ShoppingCartSVG} alt="/" />
-          </CustomLink>
+          <div className="cart-icon">
+            <a href={ShoppingCartSVG}>
+              <img src={ShoppingCartSVG} alt="/" onClick={handleShoppingCart} />
+            </a>
+          </div>
+          <div className="cart-num">3</div>
           <CustomLink href="/favorites">
             <img src={FavoritesSVG} alt="/" />
           </CustomLink>
@@ -19,6 +27,7 @@ export default function Navbar() {
           </CustomLink>
         </ul>
       </div>
+      <ShoppingCart handleShoppingCart={handleShoppingCart} />
       <div className="navbar-container">
         <CustomLink href="/Home" className="logo">
           <h1>Streetwear Store</h1>
