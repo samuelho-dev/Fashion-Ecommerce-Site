@@ -35,11 +35,13 @@ export default function Designers() {
         {store.map((cat) => (
           <ul>
             <h2>{cat.category}</h2>
-            {cat.designers.map((des) => (
-              <li>
-                <h3>{des}</h3>
-              </li>
-            ))}
+            <div className="letter-block">
+              {cat.designers.map((des) => (
+                <li>
+                  <h3>{des}</h3>
+                </li>
+              ))}
+            </div>
           </ul>
         ))}
       </div>

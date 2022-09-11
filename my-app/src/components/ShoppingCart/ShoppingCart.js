@@ -40,12 +40,12 @@ function CartItemChange() {
 
   function addItem(e) {
     e.preventDefault();
-    setItemCount(e.target.value++);
+    setItemCount(itemCount + 1);
   }
 
   function removeItem(e) {
     e.preventDefault();
-    setItemCount(e.target.value--);
+    setItemCount(itemCount - 1);
   }
   return (
     <div className="price-container">
