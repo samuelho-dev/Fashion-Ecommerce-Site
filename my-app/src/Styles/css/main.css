@@ -558,7 +558,7 @@ li {
   background: white;
   border: 1px solid black;
   right: 0;
-  height: 400px;
+  height: fit-content;
   width: 15rem;
   padding: 1rem;
   border-radius: 2%;
@@ -568,10 +568,15 @@ li {
   border-bottom: 1px solid rgba(30, 32, 25, 0.6);
 }
 
+.cartitem-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .item-container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin-bottom: 0.5rem;
@@ -600,6 +605,11 @@ li {
 
 .checkout-btn {
   padding: 1rem;
+}
+
+.item-details > img {
+  object-fit: cover;
+  width: 3.5em;
 }
 
 #new-releases-cards,
@@ -694,10 +704,14 @@ label {
   justify-content: center;
 }
 
-.letter-block > li {
-  display: inline-block;
+.name-container {
+  display: flex;
+  margin-left: 1rem;
 }
 
 .letter-block {
-  padding: 1rem;
+  border: 1px solid #474747;
+  border-radius: 20% 5%;
+  padding: 0.5rem;
+  margin-left: 1rem;
 }/*# sourceMappingURL=main.css.map */

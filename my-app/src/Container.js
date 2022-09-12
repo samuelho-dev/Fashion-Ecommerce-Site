@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import Navbar from "./components/Navigation/Navbar";
 import Frontpage from "./components/Frontpage/Frontpage";
 import Designers from "../src/components/Designers/Designers";
@@ -8,6 +8,8 @@ import About from "./components/About/About";
 import Footer from "./components/Navigation/Footer";
 
 export default function Container() {
+  const [userCart, setUserCart] = useState([]);
+  console.log(userCart);
   let content;
   switch (window.location.pathname) {
     case "/":
@@ -20,7 +22,7 @@ export default function Container() {
       content = <Designers />;
       break;
     case "/Products":
-      content = <Products />;
+      content = <Products userCart={userCart} setUserCart={setUserCart} />;
       break;
     case "/Articles":
       content = <Articles />;
@@ -28,10 +30,12 @@ export default function Container() {
     case "/About":
       content = <About />;
       break;
+    default:
+      content = <Frontpage />;
   }
   return (
     <div>
-      <Navbar />
+      <Navbar userCart={userCart} setUserCart={setUserCart} />
       <div className="container" id="main">
         {content}
       </div>

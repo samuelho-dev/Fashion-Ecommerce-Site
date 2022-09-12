@@ -4,7 +4,7 @@ import FavoritesSVG from "../images/icons/heart.svg";
 import ShoppingCartSVG from "../images/icons/shopping-cart.svg";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
-export default function Navbar() {
+export default function Navbar({ userCart, setUserCart }) {
   const handleShoppingCart = (e) => {
     console.log(e.target.id);
   };
@@ -27,7 +27,11 @@ export default function Navbar() {
           </CustomLink>
         </ul>
       </div>
-      <ShoppingCart handleShoppingCart={handleShoppingCart} />
+      <ShoppingCart
+        handleShoppingCart={handleShoppingCart}
+        userCart={userCart}
+        setUserCart={setUserCart}
+      />
       <div className="navbar-container">
         <CustomLink href="/Home" className="logo">
           <h1>Streetwear Store</h1>

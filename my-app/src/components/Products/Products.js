@@ -3,7 +3,7 @@ import productData from "./productdata.json";
 import FilterPanel from "./components/FilterPanel";
 import ProductDisplay from "./components/ProductDisplay";
 
-export default function Products() {
+export default function Products({ userCart, setUserCart }) {
   const [filterCriteria, setFilterCriteria] = useState({
     designer: [],
     sizes: [],
@@ -27,7 +27,6 @@ export default function Products() {
       let productsByKey = productData.filter((item) => {
         for (const filterKey in filterCriteria) {
           const currFilterArr = filterCriteria[filterKey];
-
           for (let i = 0; currFilterArr.length; i++) {
             const currFilter = currFilterArr[i];
             const currItem = item[filterKey].toUpperCase();
@@ -45,16 +44,8 @@ export default function Products() {
     }
   };
 
-  function addToCart(e) {
-    e.preventDefault();
-    console.log(e.target.value);
-  }
-
   //filter by filterCriteria
   //return productdata that meets FilterCriteria
-
-  //Use Effect when filterCriteria changes
-  // Rerender displayedProduct with filterCriteria
 
   return (
     <>
@@ -68,7 +59,8 @@ export default function Products() {
           />
           <ProductDisplay
             displayedProducts={displayedProducts}
-            addToCart={addToCart}
+            userCart={userCart}
+            setUserCart={setUserCart}
           />
         </div>
       </div>

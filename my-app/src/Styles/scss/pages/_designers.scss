@@ -1,7 +1,13 @@
-.letter-block > li {
-  display: inline-block;
+@use "../abstracts/" as a;
+
+.name-container {
+  display: flex;
+  margin-left: 1rem;
 }
 
 .letter-block {
-  padding: 1rem;
+  border: 1px solid a.$grey;
+  border-radius: 20% 5%;
+  padding: 0.5rem;
+  margin-left: 1rem;
 }

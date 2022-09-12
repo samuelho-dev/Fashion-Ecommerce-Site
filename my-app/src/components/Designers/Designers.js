@@ -28,6 +28,14 @@ export default function Designers() {
     };
   });
 
+  function changeBackground(e) {
+    e.target.style.background = "white";
+  }
+
+  function changeBackgroundLeave(e) {
+    e.target.style.background = "black";
+  }
+
   console.log(store);
   return (
     <>
@@ -35,10 +43,14 @@ export default function Designers() {
         {store.map((cat) => (
           <ul>
             <h2>{cat.category}</h2>
-            <div className="letter-block">
+            <div className="name-container">
               {cat.designers.map((des) => (
-                <li>
-                  <h3>{des}</h3>
+                <li
+                  className="letter-block"
+                  onMouseOver={changeBackground}
+                  onMouseLeave={changeBackgroundLeave}
+                >
+                  <h5>{des}</h5>
                 </li>
               ))}
             </div>

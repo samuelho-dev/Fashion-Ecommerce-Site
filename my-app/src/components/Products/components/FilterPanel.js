@@ -35,7 +35,6 @@ export default function FilterPanel({
     setFilterMsg(updatedMsg);
     filter();
   };
-
   return (
     <div className="filterpanel-container">
       <p>Current Filter : {filterMsg}</p>
