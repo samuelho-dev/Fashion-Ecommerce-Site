@@ -9,7 +9,7 @@ import Footer from "./components/Navigation/Footer";
 
 export default function Container() {
   const [userCart, setUserCart] = useState([]);
-  console.log(userCart);
+
   let content;
   switch (window.location.pathname) {
     case "/":

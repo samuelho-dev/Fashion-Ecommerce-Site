@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React } from "react";
 
 export default function ProductDisplay({
   displayedProducts,
@@ -6,31 +6,25 @@ export default function ProductDisplay({
   userCart,
   setUserCart,
 }) {
-  function addToCart(index) {
-    const currCart = displayedProducts[index];
-    if (!userCart.includes(currCart)) {
-      setUserCart((prev) => [...prev, currCart]);
+  let userSelection = "";
+  function userSizeSelection(e) {
+    userSelection = e.target.value;
+    console.log(userSelection);
+  }
+
+  function addToCart(obj) {
+    const found = userCart.find((cartItem) => cartItem.id === obj.id);
+    console.log(found);
+    if (!found) {
+      setUserCart((prev) => [...prev, obj]);
     } else {
       alert("Item is already in your cart");
     }
-    console.log(userCart);
   }
-
-  useEffect(() => {
-    console.log("cart updated");
-  }, [userCart]);
-
-  // const sizeBtn = product.sizes.map((sizes, index) => {
-  //   return (
-  //     <button className="userSelectedSizes" key={index}>
-  //       <p>{sizes}</p>
-  //     </button>
-  //   );
-  // });
 
   return (
     <div className="display-container">
-      {displayedProducts.map((product, index) => {
+      {displayedProducts.map((product) => {
         return (
           <div className="product-details" key={product.id}>
             <div className="product-img">
@@ -42,9 +36,27 @@ export default function ProductDisplay({
             <h5>{product.designer.toUpperCase()}</h5>
             <p>{product.productName.toUpperCase()}</p>
             <p>${product.price}</p>
+            <div className="sizebtn-container" onClick={userSizeSelection}>
+              {product.sizes.map((size) => {
+                return (
+                  <div class="sizebtn">
+                    <input type="radio" />
+                    <label htmlFor="">{size.toUpperCase()}</label>
+                  </div>
+                );
+              })}
+            </div>
             <button
               onClick={() => {
-                addToCart(index);
+                addToCart({
+                  id: product.id,
+                  designer: product.designer,
+                  sizes: product.sizes[userSelection],
+                  productName: product.productName,
+                  img: product.img,
+                  price: product.price,
+                  quantity: 1,
+                });
               }}
             >
               Add to Cart

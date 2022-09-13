@@ -31,9 +31,15 @@ label {
   flex-direction: row;
 }
 
-.userSelectedSizes {
-  width: 100px;
-  height: 2rem;
+.sizebtn-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.sizebtn > button:active {
+  top: 2px;
+  left: 1px;
+  box-shadow: none;
 }
 
 .display-container {
