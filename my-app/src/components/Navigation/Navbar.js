@@ -18,7 +18,7 @@ export default function Navbar({ userCart, setUserCart }) {
               <img src={ShoppingCartSVG} alt="/" onClick={handleShoppingCart} />
             </a>
           </div>
-          <div className="cart-num">3</div>
+          <div className="cart-num">{userCart.length}</div>
           <CustomLink href="/favorites">
             <img src={FavoritesSVG} alt="/" />
           </CustomLink>

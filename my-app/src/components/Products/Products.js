@@ -20,7 +20,6 @@ export default function Products({ userCart, setUserCart }) {
       count += filterCriteria[filterKey].length;
     }
     console.log(count);
-
     if (count === 0) {
       setDisplayedProducts(productData);
     } else {
@@ -44,8 +43,27 @@ export default function Products({ userCart, setUserCart }) {
     }
   };
 
-  //filter by filterCriteria
-  //return productdata that meets FilterCriteria
+  const [sizeBtnSelected, setSizeBtnSelected] = useState(0);
+  function addToCart(obj) {
+    //if id of userSelected != id of obj.id
+    //return error - select a size
+    if (
+      obj.id === sizeBtnSelected.id &&
+      obj.sizes === sizeBtnSelected.activeSizeBtn
+    ) {
+      const found = userCart.find((cartItem) => cartItem.id === obj.id);
+      if (!found) {
+        setUserCart((prev) => [...prev, obj]);
+      } else {
+        alert("Item is already in your cart");
+      }
+    } else {
+      alert(`Please select a size for ${obj.productName}`);
+    }
+  }
+  function handleSizeBtnClick(size, id) {
+    setSizeBtnSelected({ activeSizeBtn: size, id: id });
+  }
 
   return (
     <>
@@ -61,6 +79,9 @@ export default function Products({ userCart, setUserCart }) {
             displayedProducts={displayedProducts}
             userCart={userCart}
             setUserCart={setUserCart}
+            addToCart={addToCart}
+            handleSizeBtnClick={handleSizeBtnClick}
+            sizeBtnSelected={sizeBtnSelected}
           />
         </div>
       </div>

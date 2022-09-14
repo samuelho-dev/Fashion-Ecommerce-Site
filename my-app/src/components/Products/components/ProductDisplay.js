@@ -1,27 +1,11 @@
-import { React } from "react";
+import { React, useState } from "react";
 
 export default function ProductDisplay({
   displayedProducts,
   addToCart,
-  userCart,
-  setUserCart,
+  handleSizeBtnClick,
+  sizeBtnSelected,
 }) {
-  let userSelection = "";
-  function userSizeSelection(e) {
-    userSelection = e.target.value;
-    console.log(userSelection);
-  }
-
-  function addToCart(obj) {
-    const found = userCart.find((cartItem) => cartItem.id === obj.id);
-    console.log(found);
-    if (!found) {
-      setUserCart((prev) => [...prev, obj]);
-    } else {
-      alert("Item is already in your cart");
-    }
-  }
-
   return (
     <div className="display-container">
       {displayedProducts.map((product) => {
@@ -36,22 +20,32 @@ export default function ProductDisplay({
             <h5>{product.designer.toUpperCase()}</h5>
             <p>{product.productName.toUpperCase()}</p>
             <p>${product.price}</p>
-            <div className="sizebtn-container" onClick={userSizeSelection}>
+            <div className="sizebtn-container">
               {product.sizes.map((size) => {
                 return (
-                  <div class="sizebtn">
-                    <input type="radio" />
-                    <label htmlFor="">{size.toUpperCase()}</label>
-                  </div>
+                  <button
+                    key={size}
+                    className={`sizeBtn ${
+                      sizeBtnSelected.activeSizeBtn === size &&
+                      sizeBtnSelected.id === product.id
+                        ? "activeSizeBtn"
+                        : ""
+                    }`}
+                    onClick={() => handleSizeBtnClick(size, product.id)}
+                    value={size.toUpperCase()}
+                  >
+                    <p>{size.toUpperCase()}</p>
+                  </button>
                 );
               })}
             </div>
             <button
+              className="addtocart"
               onClick={() => {
                 addToCart({
                   id: product.id,
                   designer: product.designer,
-                  sizes: product.sizes[userSelection],
+                  sizes: sizeBtnSelected.activeSizeBtn,
                   productName: product.productName,
                   img: product.img,
                   price: product.price,
@@ -59,7 +53,7 @@ export default function ProductDisplay({
                 });
               }}
             >
-              Add to Cart
+              <h5>Add to Cart</h5>
             </button>
           </div>
         );

@@ -8,7 +8,7 @@
 .shoppingcart {
   z-index: 99;
   position: absolute;
-  background: white;
+  background: a.$white;
   border: 1px solid black;
   right: 0;
   height: fit-content;
@@ -40,20 +40,46 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  text-align: right;
+}
+
+.cartBtns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cartBtns > img {
+  cursor: pointer;
+}
+
+.cartBtns > img,
+.cartBtns > select {
+  background: a.$white;
+}
+
+.cartcenter {
+  display: flex;
+  border-top: 1px solid a.$lg-black-line;
+  justify-content: center;
 }
 
 .checkout-container {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid a.$lg-black-line;
   padding: 1rem 0 1rem 0;
   width: 70%;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 }
 
 .checkout-btn {
   padding: 1rem;
+  background: a.$black;
+  color: a.$white;
+  border-radius: 5%;
+  cursor: pointer;
 }
 
 .item-details > img {

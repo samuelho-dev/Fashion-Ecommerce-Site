@@ -1,28 +1,9 @@
-import { React, useState } from "react";
+import { React } from "react";
+import trashcan from "../images/icons/trash-2.svg";
 
 export default function ShoppingCart({ userCart, setUserCart }) {
-  console.log(userCart);
-  return (
-    <div className="container">
-      <div className="cartposition">
-        <div className="shoppingcart">
-          <div className="cartheader">
-            <h3>Your Cart</h3>
-          </div>
-          <ShoppingItem userCart={userCart} setUserCart={setUserCart} />
-          <div className="checkout-container">
-            <p>Your total is</p>
-            <button className="checkout-btn">Checkout</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ShoppingItem({ userCart, setUserCart }) {
-  const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   let updatedCart = [...userCart];
+
   const itemPrice = (e, index) => {
     updatedCart[index].quantity = e.target.value;
     setUserCart(updatedCart);
@@ -33,6 +14,45 @@ function ShoppingItem({ userCart, setUserCart }) {
     updatedCart = updatedCart.filter((obj) => obj.id !== id);
     setUserCart(updatedCart);
   }
+
+  const total = () => {
+    let total = 0;
+    for (let i = 0; i < userCart.length; i++) {
+      let subtotal = userCart[i].price * userCart[i].quantity;
+      const tax = 0.4;
+      total = total + subtotal * (1 + tax);
+    }
+    return total;
+  };
+  console.log(total);
+  return (
+    <div className="container">
+      <div className="cartposition">
+        <div className="shoppingcart">
+          <div className="cartheader">
+            <h3>Your Cart</h3>
+          </div>
+          <ShoppingItem
+            userCart={userCart}
+            itemPrice={itemPrice}
+            removeFromCart={removeFromCart}
+          />
+          <div className="cartcenter">
+            <div className="checkout-container">
+              <h5>Your total is {total}</h5>
+              <button className="checkout-btn">
+                <h5>Checkout</h5>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ShoppingItem({ userCart, itemPrice, removeFromCart }) {
+  const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   if (userCart.length === 0) {
     return <div>You have nothing in this cart</div>;
@@ -51,29 +71,33 @@ function ShoppingItem({ userCart, setUserCart }) {
               <div className="price-container">
                 <h5>{product.designer.toUpperCase()}</h5>
                 <p>
-                  {product.productName.toUpperCase()} - {product.sizes}
+                  {product.productName.toUpperCase()} -{" "}
+                  {product.sizes.toUpperCase()}
                 </p>
                 <div className="price">
-                  <button
-                    onClick={() => {
-                      removeFromCart(product.id);
-                    }}
-                  >
-                    trash
-                  </button>
-                  <select
-                    name="p"
-                    id=""
-                    onChange={(e) => {
-                      itemPrice(e, userCartIndex);
-                    }}
-                  >
-                    {options.map((el) => {
-                      return <option value={el}>{el}</option>;
-                    })}
-                  </select>
+                  <div className="cartBtns">
+                    <img
+                      src={trashcan}
+                      alt={product.productName}
+                      onClick={() => {
+                        removeFromCart(product.id);
+                      }}
+                    />
+                    <select
+                      name="selectnumber"
+                      onChange={(e) => {
+                        itemPrice(e, userCartIndex);
+                      }}
+                    >
+                      {options.map((el) => {
+                        return <option value={el}>{el}</option>;
+                      })}
+                    </select>
+                  </div>
                 </div>
-                USD : ${(product.price * product.quantity).toLocaleString()}
+                <h5>
+                  USD : ${(product.price * product.quantity).toLocaleString()}
+                </h5>
               </div>
             </div>
           );

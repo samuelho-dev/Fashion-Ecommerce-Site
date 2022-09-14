@@ -30,11 +30,13 @@ h3 {
 h5 {
   font-size: clamp(v.$xs, 2.5vw, v.$sm);
   margin: 0;
+  letter-spacing: 0.01rem;
 }
 
 p {
   font-size: clamp(v.$xxs, 2.5vw, v.$xs);
   margin: 0;
+  line-height: 1rem;
 }
 
 li {
