@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "./Banner";
 import FeatureSpotlight from "./FeatureSpotlight";
+import productData from "../Products/productdata.json";
 
 import NewRelease1 from "../images/cloud-horizon-shoe-fiendstore.png";
 import NewRelease2 from "../images/carti-anime-sweatshirt-stonislaw.png";
@@ -14,12 +15,13 @@ import StyleImg3 from "../images/minimal.png";
 import StyleImg4 from "../images/streetwear.png";
 import StyleImg5 from "../images/techwear.png";
 
-export default function Frontpage() {
+export default function Frontpage({}) {
   return (
     <>
       <Banner />
       <section id="new-releases-container">
-        <h2>New Releases</h2>
+        <h2>introducing.. MIHARA YASUHIRO</h2>
+        {/* <FeaturedDesigner /> */}
         <div id="new-releases-cards">
           <img className="product-card" src={NewRelease1} alt="" />
           <img className="product-card" src={NewRelease2} alt="" />
@@ -71,3 +73,32 @@ export default function Frontpage() {
     </>
   );
 }
+
+// function FeaturedDesigner() {
+//   const designer = productData.map((obj) => obj.designer === '')
+//   return (
+//     <div>
+//       <div>
+//         <img
+//           src={require("../../../public/imgs/" + designer.img[1] + ".png")}
+//           alt=""
+//         />
+//       </div>
+//       <div>
+//         <img
+//           src={require("../../../public/imgs/" + designer.img[2] + ".png")}
+//           alt=""
+//         />
+//         <img
+//           src={require("../../../public/imgs/" + designer.img[0] + ".png")}
+//           alt=""
+//         />
+//         <img
+//           src={require("../../../public/imgs/" + designer.img[3] + ".png")}
+//           alt=""
+//         />
+//       </div>
+//     </div>
+//   );
+
+// }

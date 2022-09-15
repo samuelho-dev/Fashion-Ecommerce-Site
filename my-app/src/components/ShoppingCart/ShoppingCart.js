@@ -55,7 +55,9 @@ function ShoppingItem({ userCart, itemPrice, removeFromCart }) {
             <div className="item-container" key={userCartIndex}>
               <div className="item-details">
                 <img
-                  src={require("../../../public/imgs/" + product.img + ".png")}
+                  src={require("../../../public/imgs/" +
+                    product.img[0] +
+                    ".png")}
                   alt={product.productName.toUpperCase()}
                 />
               </div>

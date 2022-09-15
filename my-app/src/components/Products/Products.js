@@ -62,7 +62,7 @@ export default function Products({ userCart, setUserCart }) {
       alert(`Please select a size for ${obj.productName}`);
     }
   }
-  function handleSizeBtnClick(size, id, i) {
+  function handleSizeBtnClick(size, id) {
     setSizeBtnSelected({ activeSizeBtn: size, id: id });
   }
 

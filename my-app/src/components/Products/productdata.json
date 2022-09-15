@@ -8,7 +8,12 @@
     "color": "white",
     "description": "All wear, mending, and idiosyncrasies are unique to the custom textile.",
     "price": 768,
-    "img": "Bode-georgia-peach-jacket"
+    "img": [
+      "Bode-georgia-peach-jacket",
+      "Bode-georgia-peach-jacket2",
+      "Bode-georgia-peach-jacket3",
+      "Bode-georgia-peach-jacket4"
+    ]
   },
   {
     "id": "10",
@@ -19,7 +24,12 @@
     "color": "limestone",
     "description": "CACT.US CORP joins forces with Nike to bring you this highly adaptable take on a technical jacket made with at least 75% recycled polyester fibers. Imagined, designed, and built as a collection for the unpredictability of everyday exploration, it features GORE-TEX to keep you dry and a Polartec® lined removable hood for warmth.",
     "price": 400,
-    "img": "m-nrg-jacket-nike"
+    "img": [
+      "m-nrg-jacket-nike",
+      "m-nrg-jacket-nike2",
+      "m-nrg-jacket-nike3",
+      "m-nrg-jacket-nike4"
+    ]
   },
   {
     "id": "11",
@@ -30,7 +40,12 @@
     "color": "pink/white",
     "description": "All wear, mending, and idiosyncrasies are unique to the custom textile.",
     "price": 648,
-    "img": "pink-quilt-bode"
+    "img": [
+      "pink-quilt-bode",
+      "pink-quilt-bode2",
+      "pink-quilt-bode3",
+      "pink-quilt-bode4"
+    ]
   },
   {
     "id": "12",
@@ -41,7 +56,12 @@
     "color": "dark oatmeal",
     "description": "Los Angeles designer Jerry Lorenzo became a streetwear status symbol through his supercurrent, ready-to-wear garments. Glamor and streetwear at its finest. Fear Of God capitalizes on the enduring allure of sophisticated yet low-key basics, something you can't find every day, but at the same time, suitable for everyday wear. Once you see and feel the premium quality pursued in each garment, it will make you wish you had a piece in your closet. ",
     "price": 120,
-    "img": "grey-fleece-essentials"
+    "img": [
+      "grey-fleece-essentials",
+      "grey-fleece-essentials2",
+      "grey-fleece-essentials3",
+      "grey-fleece-essentials4"
+    ]
   },
   {
     "id": "13",
@@ -52,7 +72,12 @@
     "color": "iron",
     "description": "Los Angeles designer Jerry Lorenzo became a streetwear status symbol through his supercurrent, ready-to-wear garments. Glamor and streetwear at its finest. Fear Of God capitalizes on the enduring allure of sophisticated yet low-key basics, something you can't find every day, but at the same time, suitable for everyday wear. Once you see and feel the premium quality pursued in each garment, it will make you wish you had a piece in your closet. ",
     "price": 150,
-    "img": "polar-fleece-iron-essentials"
+    "img": [
+      "polar-fleece-iron-essentials",
+      "polar-fleece-iron-essentials2",
+      "polar-fleece-iron-essentials3",
+      "polar-fleece-iron-essentials4"
+    ]
   },
   {
     "id": "14",
@@ -63,7 +88,12 @@
     "color": "LT IRON ORE/COBBLESTONE-FLAT PEWTER-SAIL",
     "description": "Air Max 95 SE 'Cobblestone' ",
     "price": 190,
-    "img": "nike-air-max-96-se"
+    "img": [
+      "nike-air-max-96-se",
+      "nike-air-max-96-se2",
+      "nike-air-max-96-se3",
+      "nike-air-max-96-se4"
+    ]
   },
   {
     "id": "15",
@@ -74,7 +104,12 @@
     "color": "white",
     "description": "An unexpected blending of textures and silhouettes comprises Maison Mihara Yasuhiro clothing. Raw-cut edges and oversized cuts perfectly encapsulate the label's penchant for grungy, urban design. Gritty, earthy hues marry effortlessly with abstract patches and frayed militarty-inspired belts to create unconventional tops and outerwear.Despite being active for more than 20 years and showcasing a multitude of talents ranging from footwear design to menswear that rivals couture in its thoughtfulness, Mihara Yasuhiro has remained a designer with a relatively niche following in Europe and North America.",
     "price": 490,
-    "img": "PARKER LOW-TOP SNEAKER-MIHARA YASUHIRO"
+    "img": [
+      "PARKER LOW-TOP SNEAKER-MIHARA YASUHIRO",
+      "PARKER LOW-TOP SNEAKER-MIHARA YASUHIRO2",
+      "PARKER LOW-TOP SNEAKER-MIHARA YASUHIRO3",
+      "PARKER LOW-TOP SNEAKER-MIHARA YASUHIRO4"
+    ]
   },
   {
     "id": "16",
@@ -85,7 +120,12 @@
     "color": "multi",
     "description": "Probubly one of our favorite pieces of Divinities Summer 2022 collection.",
     "price": 220,
-    "img": "poppies-denim-painer-divinities"
+    "img": [
+      "poppies-denim-painer-divinities",
+      "poppies-denim-painer-divinities2",
+      "poppies-denim-painer-divinities3",
+      "poppies-denim-painer-divinities4"
+    ]
   },
   {
     "id": "17",
@@ -96,7 +136,12 @@
     "color": "desert taupe",
     "description": "Los Angeles designer Jerry Lorenzo became a streetwear status symbol through his supercurrent, ready-to-wear garments. Glamor and streetwear at its finest. Fear Of God capitalizes on the enduring allure of sophisticated yet low-key basics, something you can't find every day, but at the same time, suitable for everyday wear. Once you see and feel the premium quality pursued in each garment, it will make you wish you had a piece in your closet. ",
     "price": 90,
-    "img": "RELAXED SWEATPANTS-ESSENTIALS"
+    "img": [
+      "RELAXED SWEATPANTS-ESSENTIALS",
+      "RELAXED SWEATPANTS-ESSENTIALS2",
+      "RELAXED SWEATPANTS-ESSENTIALS3",
+      "RELAXED SWEATPANTS-ESSENTIALS4"
+    ]
   },
   {
     "id": "18",
@@ -107,7 +152,12 @@
     "color": "grey",
     "description": "Martine Rose established her eponymous label in London in 2007. It has since evolved from a tightly edited shirting collection to an internationally renowned and critically acclaimed brand. Her innate authenticity and commitment to modernity have helped to create collections that retain their underground cult credentials while achieving global success. In addition Martine has become one of the most in demand consultants and collaborators in fashion - and for many years now has consistently influenced the direction of contemporary menswear.",
     "price": 210,
-    "img": "WIDE LEG SHORT-MARTINE ROSE"
+    "img": [
+      "WIDE LEG SHORT-MARTINE ROSE",
+      "WIDE LEG SHORT-MARTINE ROSE2",
+      "WIDE LEG SHORT-MARTINE ROSE3",
+      "WIDE LEG SHORT-MARTINE ROSE4"
+    ]
   },
   {
     "id": "19",
@@ -118,6 +168,11 @@
     "color": "navy",
     "description": "Summer is around the corner and to go along with our printables, we have some everyday shorts for y'all. Nothing shittier than a short with no pockets, so we decidided to also attached a big utility pocket.",
     "price": 200,
-    "img": "NOBLE SHORT-UNION LOS ANGELES"
+    "img": [
+      "NOBLE SHORT-UNION LOS ANGELES",
+      "NOBLE SHORT-UNION LOS ANGELES2",
+      "NOBLE SHORT-UNION LOS ANGELES3",
+      "NOBLE SHORT-UNION LOS ANGELES4"
+    ]
   }
 ]

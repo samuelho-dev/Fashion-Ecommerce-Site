@@ -1,4 +1,5 @@
-import { React } from "react";
+import { React, useState } from "react";
+import handleCarouselClick from "../../Utils/Carousel";
 
 export default function ProductDisplay({
   displayedProducts,
@@ -11,12 +12,7 @@ export default function ProductDisplay({
       {displayedProducts.map((product) => {
         return (
           <div className="product-details" key={product.id}>
-            <div className="product-img">
-              <img
-                src={require("../../../../public/imgs/" + product.img + ".png")}
-                alt={product.productName.toUpperCase()}
-              />
-            </div>
+            <ProductImgCarousel imgs={product.img} />
             <h5>{product.designer.toUpperCase()}</h5>
             <p>{product.productName.toUpperCase()}</p>
             <p>${product.price}</p>
@@ -58,6 +54,27 @@ export default function ProductDisplay({
           </div>
         );
       })}
+    </div>
+  );
+}
+
+function ProductImgCarousel(Arr) {
+  console.log(Arr.imgs);
+  const [index, setIndex] = useState(0);
+  return (
+    <div className="product-img">
+      <button
+        className="carousel-button prev"
+        onClick={() => handleCarouselClick("prev", setIndex, Arr.imgs)}
+      ></button>
+      <button
+        className="carousel-button next"
+        onClick={() => handleCarouselClick("next", setIndex, Arr.imgs)}
+      ></button>
+      <img
+        src={require("../../../../public/imgs/" + Arr.imgs[index] + ".png")}
+        alt=""
+      />
     </div>
   );
 }

@@ -21,28 +21,23 @@
 }
 
 .carousel-button {
-  position: absolute;
-  z-index: 2;
-  background: none;
-  border: none;
+  position: relative;
+  height: 10px;
+  top: 45%;
   font-size: 4rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: a.$white;
   cursor: pointer;
   border-radius: 0.25rem;
   padding: 0 0.5rem;
 }
 
-.carousel-button:hover,
-.carousel-button:focus {
-  color: a.$white;
-}
-
-.carousel-button.prev {
-  left: 3%;
-}
-
 .carousel-button.next {
-  right: 3%;
+  right: -82%;
 }
+.carousel-button.prev {
+  right: -5%;
+}
+
+// .carousel-button:hover,
+// .carousel-button:focus {
+//   color: a.$white;
+// }

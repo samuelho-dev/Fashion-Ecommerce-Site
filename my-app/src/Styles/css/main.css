@@ -373,7 +373,7 @@ li {
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 1200px;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -431,30 +431,21 @@ button.hover {
 }
 
 .carousel-button {
-  position: absolute;
-  z-index: 2;
-  background: none;
-  border: none;
+  position: relative;
+  height: 10px;
+  top: 45%;
   font-size: 4rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #f5f3f5;
   cursor: pointer;
   border-radius: 0.25rem;
   padding: 0 0.5rem;
 }
 
-.carousel-button:hover,
-.carousel-button:focus {
-  color: #f5f3f5;
+.carousel-button.next {
+  right: -82%;
 }
 
 .carousel-button.prev {
-  left: 3%;
-}
-
-.carousel-button.next {
-  right: 3%;
+  right: -5%;
 }
 
 .article-container {
@@ -494,7 +485,7 @@ button.hover {
   margin: 0;
   padding: 0.5rem 0;
   gap: 0.5rem;
-  max-width: 1140px;
+  max-width: 1200px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -510,7 +501,7 @@ button.hover {
   transform: translateY(100%);
   align-items: center;
   justify-content: space-between;
-  max-width: 1140px;
+  max-width: 1200px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -718,6 +709,7 @@ label {
   height: 100%;
   justify-content: center;
   border-radius: 2%;
+  box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45);
 }
 
 .sizebtn-container {
@@ -754,8 +746,15 @@ label {
   cursor: pointer;
 }
 
+.product-img {
+  width: 100%;
+  height: 100%;
+}
+
 .product-img > img {
+  border-radius: 0.5rem 0.5rem 0 0;
   object-fit: cover;
+  width: 100%;
   height: 20em;
 }
 
