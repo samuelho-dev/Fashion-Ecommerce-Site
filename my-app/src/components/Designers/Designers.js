@@ -33,7 +33,7 @@ export default function Designers() {
   }
 
   function changeBackgroundLeave(e) {
-    e.target.style.background = "black";
+    e.target.style.background = "none";
   }
 
   console.log(store);

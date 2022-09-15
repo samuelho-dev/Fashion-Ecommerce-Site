@@ -10,21 +10,12 @@ export default function ShoppingCart({ userCart, setUserCart }) {
     // quantity: Number(e.target.value),
     // price: Number(product.price * e.target.value)
   };
-  function removeFromCart(id) {
-    updatedCart = updatedCart.filter((obj) => obj.id !== id);
+  function removeFromCart(userCartIndex) {
+    updatedCart = updatedCart.filter(
+      (obj) => obj !== updatedCart[userCartIndex]
+    );
     setUserCart(updatedCart);
   }
-
-  const total = () => {
-    let total = 0;
-    for (let i = 0; i < userCart.length; i++) {
-      let subtotal = userCart[i].price * userCart[i].quantity;
-      const tax = 0.4;
-      total = total + subtotal * (1 + tax);
-    }
-    return total;
-  };
-  console.log(total);
   return (
     <div className="container">
       <div className="cartposition">
@@ -39,7 +30,7 @@ export default function ShoppingCart({ userCart, setUserCart }) {
           />
           <div className="cartcenter">
             <div className="checkout-container">
-              <h5>Your total is {total}</h5>
+              <h5>Your total is </h5>
               <button className="checkout-btn">
                 <h5>Checkout</h5>
               </button>
@@ -80,7 +71,7 @@ function ShoppingItem({ userCart, itemPrice, removeFromCart }) {
                       src={trashcan}
                       alt={product.productName}
                       onClick={() => {
-                        removeFromCart(product.id);
+                        removeFromCart(userCartIndex);
                       }}
                     />
                     <select
