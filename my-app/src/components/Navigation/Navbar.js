@@ -1,12 +1,26 @@
-import React from "react";
-import UserSVG from "../images/icons/user.svg";
+import { React, useState } from "react";
+import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import FavoritesSVG from "../images/icons/heart.svg";
 import ShoppingCartSVG from "../images/icons/shopping-cart.svg";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 export default function Navbar({ userCart, setUserCart }) {
+  const [cartShown, setCartShown] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
+
+  //Update User Cart Details
+  useEffect(() => {
+    let count = 0;
+    for (let i = 0; i < userCart.length; i++) {
+      count += Number(userCart[i].quantity);
+      console.log(count);
+    }
+    setCartCount(count);
+  }, [userCart]);
+
   const handleShoppingCart = (e) => {
-    console.log(e.target.id);
+    setCartShown((current) => !current);
   };
 
   return (
@@ -14,63 +28,35 @@ export default function Navbar({ userCart, setUserCart }) {
       <div className="icon-container">
         <ul className="navbar-header">
           <div className="cart-icon">
-            <a href={ShoppingCartSVG}>
-              <img src={ShoppingCartSVG} alt="/" onClick={handleShoppingCart} />
-            </a>
+            <img src={ShoppingCartSVG} alt="/" onClick={handleShoppingCart} />
           </div>
-          <div className="cart-num">{userCart.length}</div>
-          <CustomLink href="/favorites">
-            <img src={FavoritesSVG} alt="/" />
-          </CustomLink>
-          <CustomLink href="/user">
-            <img src={UserSVG} alt="/" />
-          </CustomLink>
+          <div className="cart-num">{cartCount}</div>
+          <img src={FavoritesSVG} alt="/" />
         </ul>
       </div>
-      <ShoppingCart
-        handleShoppingCart={handleShoppingCart}
-        userCart={userCart}
-        setUserCart={setUserCart}
-      />
+      {cartShown && (
+        <ShoppingCart userCart={userCart} setUserCart={setUserCart} />
+      )}
       <div className="navbar-container">
-        <CustomLink href="/Home" className="logo">
+        <NavLink to="home">
           <h1>Streetwear Store</h1>
-        </CustomLink>
+        </NavLink>
         <ul className="navbar-links">
-          <CustomLink href="/Designers">
+          <NavLink to="designers">
             <p>DESIGNERS</p>
-          </CustomLink>
-          <CustomLink href="/Products">
+          </NavLink>
+          <NavLink to="products">
             <p>PRODUCTS</p>
-          </CustomLink>
-          <CustomLink href="/Articles">
+          </NavLink>
+          <NavLink to="articles">
             <p>ARTICLES</p>
-          </CustomLink>
-          <CustomLink href="/About">
+          </NavLink>
+          <NavLink to="about">
             <p>ABOUT</p>
-          </CustomLink>
+          </NavLink>
         </ul>
-        <div className="searchwrapper">
-          <label htmlFor="search" />
-          <input
-            type="search"
-            id="search"
-            placeholder="What are you looking for?"
-          />
-        </div>
+        <div>hello</div>
       </div>
     </nav>
-  );
-}
-
-function CustomLink({ href, children, ...props }) {
-  const path = window.location.pathname;
-
-  return (
-    <li className={path === href ? "active" : ""}>
-      <a href={href} {...props}>
-        {children}
-      </a>
-    </li>
   );
 }

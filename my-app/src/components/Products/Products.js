@@ -34,6 +34,7 @@ export default function Products({ userCart, setUserCart }) {
             return currItem === currFilter;
           }
         }
+        return item;
       });
       console.log(productsByKey);
       // setDisplayedProducts((prevState) => {
@@ -42,17 +43,17 @@ export default function Products({ userCart, setUserCart }) {
       setDisplayedProducts(productsByKey);
     }
   };
-
+  //ADD TO CART FUNCTIONALITY
   const [sizeBtnSelected, setSizeBtnSelected] = useState(0);
   function addToCart(obj) {
     //if id of userSelected != id of obj.id
     //return error - select a size
-    if (
-      obj.id === sizeBtnSelected.id &&
-      obj.sizes === sizeBtnSelected.activeSizeBtn
-    ) {
-      const found = userCart.find((cartItem) => cartItem.id === obj.id);
-      if (!found) {
+    if (obj.id === sizeBtnSelected.id) {
+      const foundID = userCart.find((cartItem) => cartItem.id === obj.id);
+      const foundSize = userCart.find(
+        (cartItem) => cartItem.sizes === obj.sizes
+      );
+      if (!foundID || !foundSize) {
         setUserCart((prev) => [...prev, obj]);
       } else {
         alert("Item is already in your cart");
@@ -61,7 +62,7 @@ export default function Products({ userCart, setUserCart }) {
       alert(`Please select a size for ${obj.productName}`);
     }
   }
-  function handleSizeBtnClick(size, id) {
+  function handleSizeBtnClick(size, id, i) {
     setSizeBtnSelected({ activeSizeBtn: size, id: id });
   }
 

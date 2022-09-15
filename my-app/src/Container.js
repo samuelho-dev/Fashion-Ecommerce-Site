@@ -1,4 +1,6 @@
-import { React, useState } from "react";
+import * as React from "react";
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navigation/Navbar";
 import Frontpage from "./components/Frontpage/Frontpage";
 import Designers from "../src/components/Designers/Designers";
@@ -10,34 +12,22 @@ import Footer from "./components/Navigation/Footer";
 export default function Container() {
   const [userCart, setUserCart] = useState([]);
 
-  let content;
-  switch (window.location.pathname) {
-    case "/":
-      content = <Frontpage />;
-      break;
-    case "/Home":
-      content = <Frontpage />;
-      break;
-    case "/Designers":
-      content = <Designers />;
-      break;
-    case "/Products":
-      content = <Products userCart={userCart} setUserCart={setUserCart} />;
-      break;
-    case "/Articles":
-      content = <Articles />;
-      break;
-    case "/About":
-      content = <About />;
-      break;
-    default:
-      content = <Frontpage />;
-  }
   return (
     <div>
       <Navbar userCart={userCart} setUserCart={setUserCart} />
       <div className="container" id="main">
-        {content}
+        <Routes>
+          <Route path="/" element={<Frontpage />} />
+          <Route path="*" element={<Frontpage />} />
+          <Route path="home" element={<Frontpage />} />
+          <Route path="designers" element={<Designers />} />
+          <Route
+            path="products"
+            element={<Products userCart={userCart} setUserCart={setUserCart} />}
+          />
+          <Route path="articles" element={<Articles />} />
+          <Route path="about" element={<About />} />
+        </Routes>
       </div>
       <Footer />
     </div>
