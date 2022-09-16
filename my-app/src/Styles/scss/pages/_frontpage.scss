@@ -1,6 +1,6 @@
 @use "../abstracts" as a;
 
-#new-releases-cards,
+#featured-designer,
 .style-container,
 #feature-spotlight {
   @include a.flexRow;
@@ -8,24 +8,31 @@
   width: 100%;
 }
 
-#new-releases-container,
-.browse-by-style {
-  overflow-x: hidden;
+#featured-designer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.product-card,
-.style-img > img {
-  width: 100%;
-  height: auto;
-  padding: 0 1%;
+.square {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  padding-right: 2rem;
 }
 
-.product-card {
-  width: 200px;
+.designer-img {
+  object-fit: cover;
+  width: 80%;
+  height: 10em;
+  box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.35);
 }
 
-.style-img {
-  width: 200px;
-  aspect-ratio: 2;
-  padding: 0 1%;
+.large-designer-feature {
+  display: flex;
+  object-fit: cover;
+  width: 40%;
 }

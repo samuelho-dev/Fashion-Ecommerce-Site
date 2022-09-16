@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function handleCarouselClick(action, setIndex, array) {
   console.log(action);
   if (action === "prev") {

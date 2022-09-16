@@ -125,7 +125,8 @@
       "poppies-denim-painer-divinities2",
       "poppies-denim-painer-divinities3",
       "poppies-denim-painer-divinities4"
-    ]
+    ],
+    "profile": "divinities"
   },
   {
     "id": "17",
@@ -174,5 +175,16 @@
       "NOBLE SHORT-UNION LOS ANGELES3",
       "NOBLE SHORT-UNION LOS ANGELES4"
     ]
+  },
+  {
+    "id": "20",
+    "productName": "JORDAN X BBS SCRUNCHIE TEE",
+    "designer": "JORDAN BRAND",
+    "category": "shirt",
+    "sizes": ["xs", "m", "l"],
+    "color": "LT WILD MANGO/PALE IVORY",
+    "description": "JORDAN x BBS SCRUNCHIE TEE",
+    "price": 100,
+    "img": ["JordanOrange", "JordanOrange2", "JordanOrange3"]
   }
 ]
