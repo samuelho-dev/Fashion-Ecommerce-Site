@@ -1,11 +1,20 @@
 @use "../abstracts" as a;
 
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background-color: a.$white;
+}
+
 #root {
   background: a.$white;
 }
 
 #main {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   row-gap: 2rem;
   margin-top: 2%;
   margin-bottom: 2%;
@@ -13,7 +22,6 @@
 
 .container {
   max-width: a.$xl-container;
-  width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;

@@ -1,11 +1,14 @@
 @use "../abstracts" as a;
 
 #featured-designer,
-.style-container,
-#feature-spotlight {
+#frontpage-selection {
   @include a.flexRow;
   justify-content: space-between;
   width: 100%;
+}
+
+#feature-spotlight {
+  display: flex;
 }
 
 #featured-designer {
@@ -14,7 +17,28 @@
   justify-content: center;
 }
 
-.square {
+#frontpage-selection {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  height: 40em;
+  width: 100%;
+}
+
+.large-frontpage-selection > img {
+  width: 100%;
+}
+
+.fp-product-img {
+  display: flex;
+  justify-content: center;
+}
+
+.fp-product-img > img {
+  width: 70%;
+}
+
+.left-designer-product {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -26,13 +50,42 @@
 
 .designer-img {
   object-fit: cover;
-  width: 80%;
+  width: 100%;
   height: 10em;
-  box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.35);
+  box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem a.$black;
+  border: 1px solid a.$black;
 }
 
-.large-designer-feature {
-  display: flex;
+.center-banner {
+  width: 100%;
+  height: 5em;
   object-fit: cover;
-  width: 40%;
+  filter: contrast(50%);
+  border-radius: 2rem;
+}
+
+.left-selection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: auto;
+  width: 100%;
+}
+
+.article-container {
+  width: 50%;
+}
+
+.bannerinfo-container {
+  position: relative;
+}
+
+.banner-title {
+  padding-bottom: 2rem;
+  font-size: a.$xxl;
+}
+
+.banner-description {
+  position: absolute;
+  bottom: 1rem;
+  font-size: a.$sm;
 }

@@ -55,7 +55,9 @@ export default function Navbar({ userCart, setUserCart }) {
             <p>ABOUT</p>
           </NavLink>
         </ul>
-        <div>hello</div>
+        <NavLink to="contact">
+          <div className="contact-nav">Contact</div>
+        </NavLink>
       </div>
     </nav>
   );

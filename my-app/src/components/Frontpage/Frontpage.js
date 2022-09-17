@@ -1,12 +1,7 @@
 import Banner from "./Banner";
 import productData from "../Products/productdata.json";
+import banners from "../Frontpage/banners.json";
 import FeatureSpotlight from "./FeatureSpotlight";
-
-import StyleImg1 from "../images/avante-garde.png";
-import StyleImg2 from "../images/luxury.png";
-import StyleImg3 from "../images/minimal.png";
-import StyleImg4 from "../images/streetwear.png";
-import StyleImg5 from "../images/techwear.png";
 
 export default function Frontpage() {
   return (
@@ -18,7 +13,7 @@ export default function Frontpage() {
           if (obj.designer === "DIVINITIES") {
             return (
               <div id="featured-designer">
-                <div className="square">
+                <div className="left-designer-product">
                   <img
                     className="designer-img"
                     src={require("../../../public/imgs/" + obj.img[1] + ".png")}
@@ -50,9 +45,56 @@ export default function Frontpage() {
           }
         })}
       </section>
-      <section id="browse-by-style">
-        <h2>Browse our selection</h2>
-        <div className="style-container"></div>
+      <section>
+        <img
+          className="center-banner"
+          src={require("../../../public/imgs/" + banners[0].img + ".png")}
+          alt=""
+        />
+      </section>
+      <section id="frontpage-selection">
+        <a href="products" className="large-frontpage-selection">
+          <img
+            src={require("../../../public/imgs/" +
+              productData[0].img[1] +
+              ".png")}
+            alt=""
+          />
+        </a>
+        <div className="left-selection">
+          <a href="products" className="fp-product-img">
+            <img
+              src={require("../../../public/imgs/" +
+                productData[3].img[0] +
+                ".png")}
+              alt="/"
+            />
+          </a>
+          <a href="products" className="fp-product-img">
+            <img
+              src={require("../../../public/imgs/" +
+                productData[10].img[0] +
+                ".png")}
+              alt="/"
+            />
+          </a>
+          <a href="products" className="fp-product-img">
+            <img
+              src={require("../../../public/imgs/" +
+                productData[5].img[0] +
+                ".png")}
+              alt="/"
+            />
+          </a>
+          <a href="products" className="fp-product-img">
+            <img
+              src={require("../../../public/imgs/" +
+                productData[1].img[0] +
+                ".png")}
+              alt="/"
+            />
+          </a>
+        </div>
       </section>
       <FeatureSpotlight />
     </>

@@ -12,6 +12,13 @@
   padding-bottom: 1rem;
 }
 
+.artist-info > p,
+.articles > p {
+  font-size: a.$md;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .artist-container-2 {
   @include a.flexRowReverse;
   gap: 2rem;
@@ -19,5 +26,11 @@
 }
 
 .artist-pfp {
-  max-width: 150px;
+  width: 12em;
+}
+
+.artist-contact {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
 }

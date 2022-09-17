@@ -2,24 +2,21 @@
 
 #navbar {
   background: a.$white;
-  height: 100px;
-  padding-bottom: 0.5rem;
+  height: fit-content;
   border-bottom: 1px solid a.$sm-black-line;
 }
 
 .icon-container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   background: a.$black;
 }
 
 .navbar-header {
   @include a.flexRowReverse();
   margin: 0;
-  padding: 0.5rem 0;
+  padding-right: 2rem;
   gap: 0.5rem;
-  max-width: a.$xl-container;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 .navbar-container li {
@@ -28,13 +25,14 @@
 
 .navbar-container {
   @include a.flexRow;
-  transform: translateY(100%);
   align-items: center;
   justify-content: space-between;
   max-width: a.$xl-container;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .navbar-links {
@@ -55,4 +53,14 @@
   height: 1rem;
   text-align: center;
   transform: translate(70%);
+}
+
+.contact-nav {
+  border: 1px solid a.$white;
+  background-color: a.$black;
+  text-align: center;
+  color: a.$white;
+  padding: 0.4rem;
+  width: 4rem;
+  border-radius: 1rem;
 }

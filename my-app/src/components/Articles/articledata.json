@@ -1,11 +1,50 @@
 [
-  { "title": "Article 1", "author": "Samuel Ho", "content": "Hello World" },
   {
-    "title": "Article 2",
-    "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ullam, saepe explicabo eum vel molestiae veritatis omnis, natus a deleniti, iure eligendi quam quisquam maiores repellendus aspernatur atque fuga consectetur."
+    "id": 1,
+    "title": "The Future of Fashion Ecommerce",
+    "tag": "industry",
+    "author": "author",
+    "date": "date",
+    "img": "ai paint"
   },
   {
-    "title": "Article 3",
-    "content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae ullam, saepe explicabo eum vel molestiae veritatis omnis, natus a deleniti, iure eligendi quam quisquam maiores repellendus aspernatur atque fuga consectetur."
+    "id": 2,
+    "title": "Fall FY23 Out Now",
+    "tag": "industry",
+    "author": "author",
+    "date": "date",
+    "img": "fabrics"
+  },
+  {
+    "id": 3,
+    "title": "Interview - Brandon",
+    "tag": "interview",
+    "author": "author",
+    "date": "date",
+    "img": "hippyrobot"
+  },
+  {
+    "id": 4,
+    "title": "As a creator..",
+    "tag": "industry",
+    "author": "author",
+    "date": "date",
+    "img": "woman ai"
+  },
+  {
+    "id": 5,
+    "title": "Current trends of 2025",
+    "tag": "news",
+    "author": "author",
+    "date": "date",
+    "img": "paris"
+  },
+  {
+    "id": 6,
+    "title": "How to find your passion",
+    "tag": "industry",
+    "author": "author",
+    "date": "date",
+    "img": "bookstore"
   }
 ]

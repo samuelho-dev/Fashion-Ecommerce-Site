@@ -1,0 +1,39 @@
+@use "../abstracts/" as a;
+
+.contact-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-container {
+  @include a.flexColumn;
+  background-color: a.$black;
+  align-items: center;
+  color: a.$white;
+  height: 60vh;
+  width: 70%;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  justify-content: center;
+  border-radius: 40% 51% 27% 48% / 21% 26% 19% 26%;
+}
+
+.contact-text-container {
+  padding-bottom: 3rem;
+}
+
+.contact-text-container > h1 {
+  font-size: 4em;
+}
+.contact-text-container > p {
+  font-size: 1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
