@@ -1,10 +1,5 @@
 @use "../abstracts" as a;
 
-.cartposition {
-  position: relative;
-  padding: inherit;
-}
-
 .shoppingcart {
   z-index: 99;
   position: absolute;
@@ -12,7 +7,7 @@
   border: 1px solid black;
   right: 0;
   height: fit-content;
-  width: 15rem;
+  width: 20rem;
   padding: 1rem;
   border-radius: 2%;
 }

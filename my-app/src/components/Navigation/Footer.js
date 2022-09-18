@@ -1,9 +1,5 @@
 import React from "react";
-
-import InstagramSVG from "../images/icons/instagram.svg";
-import YoutubeSVG from "../images/icons/youtube.svg";
-import MusicSVG from "../images/icons/music.svg";
-import MailSVG from "../images/icons/mail.svg";
+import icons from "../Utils/icons.json";
 
 export default function Footer() {
   return (
@@ -18,7 +14,12 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={YoutubeSVG} alt="/" />
+                <img
+                  src={require("../../../public/icons/" +
+                    icons[11].source +
+                    ".svg")}
+                  alt={icons[11].name}
+                />
               </a>
             </li>
             <li>
@@ -27,7 +28,12 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={InstagramSVG} alt="/" />
+                <img
+                  src={require("../../../public/icons/" +
+                    icons[7].source +
+                    ".svg")}
+                  alt={icons[7].name}
+                />
               </a>
             </li>
             <li>
@@ -36,7 +42,12 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={MusicSVG} alt="/" />
+                <img
+                  src={require("../../../public/icons/" +
+                    icons[9].source +
+                    ".svg")}
+                  alt={icons[9].name}
+                />
               </a>
             </li>
             <li>
@@ -45,7 +56,12 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={MailSVG} alt="/" />
+                <img
+                  src={require("../../../public/icons/" +
+                    icons[8].source +
+                    ".svg")}
+                  alt={icons[8].name}
+                />
               </a>
             </li>
           </ul>

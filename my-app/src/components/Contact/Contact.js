@@ -20,7 +20,11 @@ export default function Contact() {
           <h5>Subject</h5>
           <input type="text" />
           <h5>Message</h5>
-          <input type="textbox" placeholder="What ya got?" />
+          <textarea
+            type="textbox"
+            placeholder="What ya got?"
+            className="contact-msg"
+          />
           <button type="submit">Submit</button>
         </form>
       </div>

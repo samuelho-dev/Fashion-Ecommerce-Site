@@ -31,7 +31,9 @@ export default function Frontpage() {
                   />
                   <img
                     className="designer-img"
-                    src={require("../../../public/imgs/" + obj.img[2] + ".png")}
+                    src={require("../../../public/imgs/" +
+                      obj.frontpage +
+                      ".jpg")}
                     alt={obj.designer}
                   />
                 </div>

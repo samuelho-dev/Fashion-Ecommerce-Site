@@ -1,9 +1,8 @@
 import { React, useState } from "react";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import FavoritesSVG from "../images/icons/heart.svg";
-import ShoppingCartSVG from "../images/icons/shopping-cart.svg";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
+import icons from "../Utils/icons.json";
 
 export default function Navbar({ userCart, setUserCart }) {
   const [cartShown, setCartShown] = useState(false);
@@ -28,10 +27,21 @@ export default function Navbar({ userCart, setUserCart }) {
       <div className="icon-container">
         <ul className="navbar-header">
           <div className="cart-icon">
-            <img src={ShoppingCartSVG} alt="/" onClick={handleShoppingCart} />
+            <img
+              src={require("../../../public/imgs/icons/" +
+                icons[10].source +
+                ".svg")}
+              alt={icons[10].source}
+              onClick={handleShoppingCart}
+            />
           </div>
           <div className="cart-num">{cartCount}</div>
-          <img src={FavoritesSVG} alt="/" />
+          <img
+            src={require("../../../public/imgs/icons/" +
+              icons[5].source +
+              ".svg")}
+            alt={icons[5].source}
+          />
         </ul>
       </div>
       {cartShown && (
@@ -50,9 +60,6 @@ export default function Navbar({ userCart, setUserCart }) {
           </NavLink>
           <NavLink to="articles">
             <p>ARTICLES</p>
-          </NavLink>
-          <NavLink to="about">
-            <p>ABOUT</p>
           </NavLink>
         </ul>
         <NavLink to="contact">

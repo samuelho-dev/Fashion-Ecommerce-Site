@@ -1,21 +1,20 @@
 @use "../abstracts" as a;
 
 .article-container {
-  padding-left: 2rem;
+  padding-left: 1rem;
   border-left: 1px solid a.$lg-black-line;
 }
 
 .article-container ul {
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 
 .articles {
   border-bottom: 1px solid a.$sm-black-line;
 }
 
-#search {
-  border: 1px solid a.$lg-black-line;
-  padding: 0.4em 0.5em;
-  height: 1.5rem;
-  font-size: a.$xs;
+.articles > .articletag {
+  display: flex;
+  justify-content: center;
+  width: 3rem;
 }

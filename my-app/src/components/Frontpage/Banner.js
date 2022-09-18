@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import handleCarouselClick from "../Utils/Carousel";
 import banners from "../Frontpage/banners.json";
+import icons from "../Utils/icons.json";
 
 export default function Banner() {
   const [index, setIndex] = useState(0);
@@ -8,18 +9,30 @@ export default function Banner() {
   return (
     <section id="carousel-container">
       <div className="carousel-carousel">
-        <button
-          className="carousel-button prev"
+        <div
+          className="banner-nav left"
           onClick={() => handleCarouselClick("prev", setIndex, banners)}
         >
-          ⚬
-        </button>
-        <button
-          className="carousel-button next"
+          <img
+            src={require("../../../public/imgs/icons/" +
+              icons[0].source +
+              ".svg")}
+            alt={icons[0].name}
+            className="carousel-button prev"
+          />
+        </div>
+        <div
+          className="banner-nav right"
           onClick={() => handleCarouselClick("next", setIndex, banners)}
         >
-          ⚬
-        </button>
+          <img
+            src={require("../../../public/imgs/icons/" +
+              icons[1].source +
+              ".svg")}
+            alt={icons[1].name}
+            className="carousel-button next"
+          />
+        </div>
         <img
           className="carousel-img"
           src={require("../../../public/imgs/" + banners[index].img + ".png")}

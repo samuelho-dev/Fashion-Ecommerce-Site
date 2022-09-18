@@ -1,5 +1,7 @@
 import { React, useState } from "react";
 import handleCarouselClick from "../../Utils/Carousel";
+import icons from "../../Utils/icons.json";
+import handleMouseOver from "../../Utils/Hover";
 
 export default function ProductDisplay({
   displayedProducts,
@@ -12,7 +14,10 @@ export default function ProductDisplay({
       {displayedProducts.map((product) => {
         return (
           <div className="product-details" key={product.id}>
-            <ProductImgCarousel imgs={product.img} />
+            <ProductImgCarousel
+              imgs={product.img}
+              description={product.description}
+            />
             <h5>{product.designer.toUpperCase()}</h5>
             <p>{product.productName.toUpperCase()}</p>
             <p>${product.price}</p>
@@ -59,19 +64,40 @@ export default function ProductDisplay({
 }
 
 function ProductImgCarousel(Arr) {
-  console.log(Arr.imgs);
+  const [hoverText, setHoverText] = useState(false);
   const [index, setIndex] = useState(0);
+  console.log(Arr);
+
   return (
     <div className="product-img">
-      <button
-        className="carousel-button prev"
+      {hoverText && <p className="product-description">{Arr.description}</p>}
+      <div
+        className="banner-nav left"
         onClick={() => handleCarouselClick("prev", setIndex, Arr.imgs)}
-      ></button>
-      <button
-        className="carousel-button next"
+      >
+        <img
+          src={require("../../../../public/imgs/icons/" +
+            icons[0].source +
+            ".svg")}
+          alt={icons[0].name}
+          className="carousel-button prev"
+        />
+      </div>
+      <div
+        className="banner-nav right"
         onClick={() => handleCarouselClick("next", setIndex, Arr.imgs)}
-      ></button>
+      >
+        <img
+          src={require("../../../../public/imgs/icons/" +
+            icons[1].source +
+            ".svg")}
+          alt={icons[1].name}
+          className="carousel-button next"
+        />
+      </div>
       <img
+        onMouseOver={() => handleMouseOver("over", setHoverText)}
+        onMouseOut={() => handleMouseOver("out", setHoverText)}
         src={require("../../../../public/imgs/" + Arr.imgs[index] + ".png")}
         alt=""
       />

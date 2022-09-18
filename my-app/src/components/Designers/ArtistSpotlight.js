@@ -2,10 +2,7 @@ import React from "react";
 
 import BobbyHundreds from "../images/bobby-hundreds.png";
 import CurrieGoat from "../images/curriegoat.png";
-
-import InstagramSVG from "../images/icons/instagram.svg";
-import YoutubeSVG from "../images/icons/youtube.svg";
-import LinkSVG from "../images/icons/external-link.svg";
+import icons from "../Utils/icons.json";
 
 export default function ArtistSpotlight() {
   return (
@@ -36,21 +33,36 @@ export default function ArtistSpotlight() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={InstagramSVG} alt="/" />
+                <img
+                  src={require("../../../public/imgs/icons/" +
+                    icons[7].source +
+                    ".svg")}
+                  alt={icons[11].name}
+                />
               </a>
               <a
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={YoutubeSVG} alt="" />
+                <img
+                  src={require("../../../public/imgs/icons/" +
+                    icons[11].source +
+                    ".svg")}
+                  alt={icons[11].name}
+                />
               </a>
               <a
                 href="https://thehundreds.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={LinkSVG} alt="" />
+                <img
+                  src={require("../../../public/imgs/icons/" +
+                    icons[6].source +
+                    ".svg")}
+                  alt={icons[11].name}
+                />
               </a>
             </div>
           </div>
@@ -79,21 +91,36 @@ export default function ArtistSpotlight() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={InstagramSVG} alt="/" />
+                <img
+                  src={require("../../../public/imgs/icons/" +
+                    icons[7].source +
+                    ".svg")}
+                  alt={icons[11].name}
+                />
               </a>
               <a
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={YoutubeSVG} alt="" />
+                <img
+                  src={require("../../../public/imgs/icons/" +
+                    icons[11].source +
+                    ".svg")}
+                  alt={icons[11].name}
+                />
               </a>
               <a
                 href="https://curriegoat.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={LinkSVG} alt="" />
+                <img
+                  src={require("../../../public/imgs/icons/" +
+                    icons[6].source +
+                    ".svg")}
+                  alt={icons[11].name}
+                />
               </a>
             </div>
           </div>

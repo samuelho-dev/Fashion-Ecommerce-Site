@@ -6,7 +6,7 @@ import Frontpage from "./components/Frontpage/Frontpage";
 import Designers from "../src/components/Designers/Designers";
 import Products from "./components/Products/Products";
 import Articles from "./components/Articles/Articles";
-import About from "./components/Contact/About";
+
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Navigation/Footer";
 
@@ -27,7 +27,6 @@ export default function Container() {
             element={<Products userCart={userCart} setUserCart={setUserCart} />}
           />
           <Route path="articles" element={<Articles />} />
-          <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
         </Routes>
       </div>

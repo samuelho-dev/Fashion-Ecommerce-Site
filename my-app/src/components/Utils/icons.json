@@ -1,0 +1,67 @@
+[
+  {
+    "id": 0,
+    "name": "carousel-left-black",
+    "source": "chevron-left-black"
+  },
+  {
+    "id": 1,
+    "name": "carousel-right-black",
+    "source": "chevron-right-black"
+  },
+  {
+    "id": 2,
+    "name": "carousel-left-white",
+    "source": "chevron-left-white"
+  },
+  {
+    "id": 3,
+    "name": "carousel-left-white",
+    "source": "chevron-left-white"
+  },
+  {
+    "id": 4,
+    "name": "heart-black",
+    "source": "heart-black"
+  },
+  {
+    "id": 5,
+    "name": "heart-white",
+    "source": "heart-white"
+  },
+  {
+    "id": 6,
+    "name": "external-link",
+    "source": "external-link"
+  },
+  {
+    "id": 7,
+    "name": "instagram",
+    "source": "instagram"
+  },
+  {
+    "id": 8,
+    "name": "mail",
+    "source": "mail"
+  },
+  {
+    "id": 9,
+    "name": "music",
+    "source": "music"
+  },
+  {
+    "id": 10,
+    "name": "shopping-cart",
+    "source": "shopping-cart"
+  },
+  {
+    "id": 11,
+    "name": "youtube",
+    "source": "youtube"
+  },
+  {
+    "id": 12,
+    "name": "trash",
+    "source": "trash"
+  }
+]

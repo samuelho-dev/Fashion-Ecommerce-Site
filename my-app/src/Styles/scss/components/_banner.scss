@@ -29,17 +29,51 @@
   border-radius: 0 0.5rem 0.5rem 0;
 }
 
+.carousel-carousel > .banner-nav {
+  width: 10%;
+}
+
+.banner-nav {
+  position: absolute;
+  height: 100%;
+  width: 15%;
+  cursor: pointer;
+}
+
+.banner-nav.left {
+  z-index: 11;
+  left: 0;
+}
+.banner-nav.right {
+  z-index: 11;
+  right: 0;
+}
+
 .carousel-button {
   position: absolute;
   top: 50%;
 }
 
+.product-img > .carousel-button {
+  top: 30%;
+}
+
 .carousel-button.next {
   z-index: 11;
+  width: 1.5rem;
   right: 1rem;
 }
 
 .carousel-button.prev {
   z-index: 11;
+  width: 1.5rem;
   left: 1rem;
+}
+
+.product-description {
+  position: absolute;
+  z-index: 11;
+  top: 20%;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }

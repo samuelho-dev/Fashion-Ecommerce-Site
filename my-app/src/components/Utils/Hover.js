@@ -1,1 +1,7 @@
-export default function Hover({ onHover, children }) {}
+export default function handleMouseOver(action, setHoverText) {
+  if (action === "over") {
+    setHoverText(true);
+  } else if (action === "out") {
+    setHoverText(false);
+  }
+}

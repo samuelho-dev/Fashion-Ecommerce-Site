@@ -1,20 +1,21 @@
 @use "../abstracts" as a;
 
 #navbar {
+  @include a.flexColumn;
   background: a.$white;
   height: fit-content;
   border-bottom: 1px solid a.$sm-black-line;
+  align-items: center;
 }
 
 .icon-container {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   background: a.$black;
+  width: 100%;
 }
 
 .navbar-header {
   @include a.flexRowReverse();
-  margin: 0;
+
   padding-right: 2rem;
   gap: 0.5rem;
 }
@@ -24,23 +25,22 @@
 }
 
 .navbar-container {
-  @include a.flexRow;
+  flex: 1;
+  display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: a.$xl-container;
+  justify-content: center;
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-bottom: 1rem;
-  margin-top: 1rem;
+  max-width: a.$xl-container;
+  padding-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .navbar-links {
   @include a.flexRow;
-  margin: 0;
-  padding: 0;
   gap: 1rem;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cart-num {

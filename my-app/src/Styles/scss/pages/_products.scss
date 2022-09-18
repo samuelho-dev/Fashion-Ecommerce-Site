@@ -86,15 +86,16 @@ label {
 }
 
 .product-img {
+  position: relative;
   height: 100%;
-  height: 20em;
   overflow-y: hidden;
   margin-bottom: 0.4rem;
 }
 
 .product-img > img {
+  position: relative;
+  top: 0;
   border-radius: 0.5rem 0.5rem 0 0;
   object-fit: cover;
   width: 100%;
-  transform: translateY(-10%);
 }
