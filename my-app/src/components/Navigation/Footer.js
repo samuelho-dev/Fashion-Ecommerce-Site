@@ -15,7 +15,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <img
-                  src={require("../../../public/icons/" +
+                  src={require("../../../public/imgs/icons/" +
                     icons[11].source +
                     ".svg")}
                   alt={icons[11].name}
@@ -29,7 +29,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <img
-                  src={require("../../../public/icons/" +
+                  src={require("../../../public/imgs/icons/" +
                     icons[7].source +
                     ".svg")}
                   alt={icons[7].name}
@@ -43,7 +43,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <img
-                  src={require("../../../public/icons/" +
+                  src={require("../../../public/imgs/icons/" +
                     icons[9].source +
                     ".svg")}
                   alt={icons[9].name}
@@ -57,7 +57,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <img
-                  src={require("../../../public/icons/" +
+                  src={require("../../../public/imgs/icons/" +
                     icons[8].source +
                     ".svg")}
                   alt={icons[8].name}

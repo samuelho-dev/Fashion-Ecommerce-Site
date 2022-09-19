@@ -22,17 +22,21 @@
 
   .carousel-img {
     width: 100%;
-    height: 30em;
+    height: 25em;
   }
 
   .large-designer-feature {
     width: 100%;
-    height: 40em;
   }
 
   .left-designer-product {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 80%;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .bannerinfo-container {
+    width: 100%;
   }
 }
