@@ -1,3 +1,5 @@
+@use "../abstracts" as a;
+
 @media (max-device-width: 1200px) {
   .carousel-carousel,
   #featured-designer,
@@ -5,10 +7,35 @@
   #feature-spotlight,
   .left-selection,
   .headline-article,
-  .article {
+  .article,
+  .artist-container-1,
+  .artist-container-2 {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .navbar-container {
+    width: auto;
+    justify-content: space-between;
+    margin-left: inherit;
+    margin-right: inherit;
+  }
+
+  .navbar-link-container {
+    @include a.flexColumn;
+    z-index: 15;
+    background: a.$white;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    transform: translateY(62%);
+  }
+
+  .navbar-link-container p {
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   #frontpage-selection,
@@ -17,12 +44,18 @@
   }
 
   .headline-article > img {
-    width: 25em;
+    width: 20em;
   }
 
   .carousel-img {
     width: 100%;
     height: 25em;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .carousel-button {
+    background: rgba(245, 243, 245, 0.5);
+    border-radius: 100%;
   }
 
   .large-designer-feature {
@@ -38,5 +71,28 @@
 
   .bannerinfo-container {
     width: 100%;
+    height: 5rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  .artist-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  .feature-spotlight {
+    align-items: flex-start;
+  }
+
+  .article-container {
+    width: 100%;
+    padding: 0;
+    border-left: none;
+  }
+
+  .article-content {
+    margin-top: 0.5rem;
   }
 }

@@ -6,7 +6,6 @@ export default function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer-container">
-          <h1 className="logo">Streetwear Store</h1>
           <ul className="footer-links">
             <li>
               <a

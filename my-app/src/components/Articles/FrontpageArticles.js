@@ -3,7 +3,7 @@ import articleData from "../Articles/articledata.json";
 
 export default function Articles() {
   const displayArticles = articleData.map((article) => {
-    if (article.id < 4) {
+    if (article.id < 5) {
       return (
         <div className="articles">
           <h3>{article.title}</h3>

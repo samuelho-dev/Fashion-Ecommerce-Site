@@ -73,5 +73,20 @@
     "id": 14,
     "name": "x",
     "source": "x"
+  },
+  {
+    "id": 15,
+    "name": "x-square-grey",
+    "source": "x-square-grey"
+  },
+  {
+    "id": 16,
+    "name": "x-circle-grey",
+    "source": "x-circle-grey"
+  },
+  {
+    "id": 17,
+    "name": "chevrons-down-grey",
+    "source": "chevrons-down-grey"
   }
 ]

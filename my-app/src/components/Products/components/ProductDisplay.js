@@ -66,7 +66,6 @@ export default function ProductDisplay({
 function ProductImgCarousel(Arr) {
   const [hoverText, setHoverText] = useState(false);
   const [index, setIndex] = useState(0);
-  console.log(Arr);
 
   return (
     <div className="product-img">

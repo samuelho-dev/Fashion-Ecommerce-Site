@@ -3,36 +3,44 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import icons from "../Utils/icons.json";
+import useOutsideClick from "../Utils/OutsideClick";
 
-export default function Navbar({ userCart, setUserCart, isMobile }) {
+export default function Navbar({
+  userCart,
+  setUserCart,
+  isMobile,
+  userTotal,
+  setUserTotal,
+}) {
   const [cartShown, setCartShown] = useState(false);
   const [cartCount, setCartCount] = useState(0);
 
   //Update User Cart Details
   useEffect(() => {
     let count = 0;
+    let subtotal = 0;
+    let tax = 0;
     for (let i = 0; i < userCart.length; i++) {
       count += Number(userCart[i].quantity);
-      console.log(count);
+      subtotal += Number(userCart[i].price * count);
+      tax += subtotal * 0.075;
     }
+    let total = subtotal + tax;
     setCartCount(count);
-  }, [userCart]);
-
-  const handleShoppingCart = (e) => {
-    setCartShown((current) => !current);
-  };
+    setUserTotal({ subtotal: subtotal, tax: tax, total: total });
+  }, [userCart, setUserTotal]);
 
   return (
     <nav id="navbar">
       <div className="icon-container">
-        <ul className="navbar-header">
+        <div className="navbar-header">
           <div className="cart-icon">
             <img
               src={require("../../../public/imgs/icons/" +
                 icons[10].source +
                 ".svg")}
               alt={icons[10].source}
-              onClick={handleShoppingCart}
+              onClick={() => setCartShown(!cartShown)}
             />
           </div>
           <div className="cart-num">{cartCount}</div>
@@ -42,10 +50,14 @@ export default function Navbar({ userCart, setUserCart, isMobile }) {
               ".svg")}
             alt={icons[5].source}
           />
-        </ul>
+        </div>
       </div>
       {cartShown && (
-        <ShoppingCart userCart={userCart} setUserCart={setUserCart} />
+        <ShoppingCart
+          userCart={userCart}
+          setUserCart={setUserCart}
+          userTotal={userTotal}
+        />
       )}
       <NavDisplay isMobile={isMobile} />
     </nav>
@@ -54,9 +66,11 @@ export default function Navbar({ userCart, setUserCart, isMobile }) {
 
 function NavDisplay(props) {
   const [navShown, setNavShown] = useState(false);
-  const [navBurger, setNavBurger] = useState(false);
+  const [navBurgerState, setNavBurgerState] = useState(true);
+
   const handleMobileNav = (e) => {
     setNavShown((current) => !current);
+    setNavBurgerState((current) => !current);
   };
   if (props.isMobile === true) {
     return (
@@ -64,7 +78,7 @@ function NavDisplay(props) {
         <NavLink to="home">
           <h1>Streetwear Store</h1>
         </NavLink>
-        {navBurger ? (
+        {navBurgerState ? (
           <img
             src={require("../../../public/imgs/icons/" +
               icons[13].source +

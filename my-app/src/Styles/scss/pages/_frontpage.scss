@@ -15,6 +15,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: 1rem;
 }
 
 #frontpage-selection {
@@ -25,8 +26,13 @@
   width: 100%;
 }
 
+.large-frontpage-selection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .large-frontpage-selection > img {
-  width: 100%;
+  width: 90%;
 }
 
 .large-designer-feature {
@@ -41,7 +47,7 @@
 }
 
 .fp-product-img > img {
-  width: 70%;
+  width: 65%;
 }
 
 .left-designer-product {
@@ -75,6 +81,7 @@
   grid-template-columns: 1fr 1fr;
   height: auto;
   width: 100%;
+  gap: 1rem;
 }
 
 .article-container {

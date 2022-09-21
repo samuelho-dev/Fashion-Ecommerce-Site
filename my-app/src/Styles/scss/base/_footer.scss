@@ -12,5 +12,9 @@
 .footer-container {
   margin-right: auto;
   margin-left: auto;
-  justify-content: space-between;
+  justify-content: flex-end;
+}
+
+.footer-links {
+  gap: 0.25rem;
 }

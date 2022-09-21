@@ -3,6 +3,7 @@
 .filterpanel-container {
   border-right: 1px solid a.$lg-black-line;
   padding-right: 2rem;
+  width: 40%;
 }
 
 .display-container {
@@ -17,31 +18,70 @@
 }
 
 .filter {
+  @include a.flexColumn;
   border-top: 1px solid a.$sm-black-line;
-  display: flex;
-  flex-direction: column;
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
 }
 
-.filter-item {
-  display: flex;
-  justify-content: flex-start;
+.filter-container {
+  @include a.flexRow;
+  border: solid 1px a.$black;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
-label {
-  padding: 0 0.5rem 0.5rem 0;
+.selected-filter-container {
+  @include a.flexRow;
+  padding: 0 0.25rem 0 0.25rem;
+
+  width: 100%;
+}
+
+.filter-button-container {
+  @include a.flexRow;
+  height: 100%;
+  gap: 0.25rem;
+}
+
+.filter-inner-container {
+  @include a.flexRow;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.selected-filters {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0 0.5rem 0 0.5rem;
+  border: solid 1px a.$grey;
+  border-radius: 1rem;
+  white-space: nowrap;
+  gap: 0.25rem;
+}
+
+.filter-options-container {
+  @include a.flexColumn;
+  border: solid 1px a.$grey;
+}
+
+.filter-option {
+  @include a.flexRow;
+  align-items: center;
+}
+
+.filter-option input {
+  margin: 0.25rem 0.25rem 0.25rem 1rem;
 }
 
 .product-container {
-  display: flex;
-  flex-direction: row;
+  @include a.flexRow;
 }
 
 .product-details {
+  @include a.flexColumn;
   position: relative;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   border: 1px solid a.$grey;
   width: 100%;
@@ -52,8 +92,7 @@ label {
 }
 
 .sizebtn-container {
-  display: flex;
-  flex-direction: row;
+  @include a.flexRow;
   gap: 0.4rem;
   margin-top: 0.6rem;
   margin-bottom: 0.6rem;

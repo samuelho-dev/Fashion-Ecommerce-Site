@@ -5,15 +5,14 @@
   padding-right: 1rem;
 }
 
+.artist-info h3 {
+  margin-bottom: 1rem;
+}
+
 .artist-container-1 {
   @include a.flexRow;
   gap: 2rem;
   border-bottom: 1px solid a.$sm-black-line;
-  padding-bottom: 1rem;
-}
-
-.artist-info > p {
-  font-size: a.$md;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }

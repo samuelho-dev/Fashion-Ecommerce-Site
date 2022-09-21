@@ -2,37 +2,43 @@
 
 #navbar {
   @include a.flexColumn;
+  justify-content: center;
   background: a.$white;
   height: fit-content;
   border-bottom: 1px solid a.$sm-black-line;
-  align-items: center;
+}
+
+.navpadding {
+  @include a.flexColumn;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .icon-container {
   background: a.$black;
-  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .navbar-header {
   @include a.flexRowReverse();
-
-  padding-right: 2rem;
   gap: 0.5rem;
-}
-
-.navbar-container li {
-  display: flex;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .navbar-container {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
   max-width: a.$xl-container;
-  padding-bottom: 0.5rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .navbar-links {
@@ -63,4 +69,5 @@
   padding: 0.4rem;
   width: 4rem;
   border-radius: 1rem;
+  justify-content: center;
 }

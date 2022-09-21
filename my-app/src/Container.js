@@ -11,8 +11,13 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Navigation/Footer";
 
 export default function Container() {
-  const [userCart, setUserCart] = useState([]);
   const [windowDimension, setWindowDimension] = useState(null);
+  const [userCart, setUserCart] = useState([]);
+  const [userTotal, setUserTotal] = useState({
+    subtotal: "",
+    tax: "",
+    total: "",
+  });
 
   useEffect(() => {
     setWindowDimension(window.innerWidth);
@@ -32,6 +37,8 @@ export default function Container() {
   return (
     <>
       <Navbar
+        userTotal={userTotal}
+        setUserTotal={setUserTotal}
         userCart={userCart}
         setUserCart={setUserCart}
         isMobile={isMobile}

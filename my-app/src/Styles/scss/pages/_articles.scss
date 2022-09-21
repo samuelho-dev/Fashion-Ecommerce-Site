@@ -27,7 +27,6 @@
   display: flex;
   gap: 0.5rem;
   padding-bottom: 0.5rem;
-  align-items: center;
 }
 
 .article-img {
@@ -53,7 +52,12 @@
 }
 
 .articletag {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  padding: 0 0.25rem 0 0.25rem;
+  height: 1rem;
   border: 1px solid a.$black;
   border-radius: 1rem;
-  padding: 0.2rem;
+  margin-bottom: 1rem;
 }

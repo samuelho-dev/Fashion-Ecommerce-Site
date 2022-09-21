@@ -1,5 +1,12 @@
 @use "../abstracts" as a;
 
+// .slide-content .scroller {
+//   width: 1024px;
+// }
+// * {
+//   outline: 1px solid #f00 !important;
+// }
+
 html,
 body,
 #root {
@@ -13,20 +20,21 @@ body,
   justify-content: space-between;
   background: a.$white;
   min-height: 100vh;
+  width: 100%;
 }
 
 #main {
   display: flex;
   flex-direction: column;
-  row-gap: 5em;
+  row-gap: 2em;
   margin-top: 2%;
   margin-bottom: 2%;
 }
 
 .container {
   max-width: a.$xl-container;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 1rem;
+  padding-left: 1rem;
   margin-right: auto;
   margin-left: auto;
 }
