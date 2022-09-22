@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import productData from "../productdata.json";
 import icons from "../../Utils/icons.json";
-import { Multiselect } from "multiselect-react-dropdown";
 
 //Filter Categories
 export default function FilterPanel({
   filterCriteria,
   setFilterCriteria,
   filter,
+  filterCriteriaInitialState,
 }) {
   const [showFilterContainer, setShowFilterContainer] = useState({
     designer: false,
@@ -15,13 +15,18 @@ export default function FilterPanel({
     color: false,
     category: false,
   });
+  const [checkedFilter, setCheckedFilter] = useState({});
   const handleFilterDropdown = (e, moduleName) => {
-    setShowFilterContainer((current) => !current[moduleName]);
+    let updatedshowFilterContainer = { ...showFilterContainer };
+    setShowFilterContainer({
+      [moduleName]: !updatedshowFilterContainer[moduleName],
+    });
   };
+  console.log(checkedFilter);
 
   const filterToggle = (e, moduleName, functionType, index) => {
     let updatedFilter = { ...filterCriteria };
-
+    console.log(index);
     //Loop --- duplicate
     if (functionType === "input-dropdown") {
       for (const key in updatedFilter) {
@@ -39,15 +44,14 @@ export default function FilterPanel({
         }
       }
     } else if (functionType === "input-delete") {
-      const selected = updatedFilter[moduleName][index];
-      console.log(updatedFilter[moduleName]);
       updatedFilter[moduleName] = updatedFilter[moduleName].filter(
-        (item) => item !== selected
+        (x) => x !== updatedFilter[moduleName][index]
       );
     } else if (functionType === "input-reset") {
-      console.log("reset");
+      updatedFilter[moduleName] = filterCriteriaInitialState[moduleName];
     }
     setFilterCriteria(updatedFilter);
+    setCheckedFilter(!checkedFilter[moduleName][index]);
   };
 
   return (
@@ -59,6 +63,7 @@ export default function FilterPanel({
           filterToggle={filterToggle}
           filterCriteria={filterCriteria}
           showFilterContainer={showFilterContainer}
+          setShowFilterContainer={setShowFilterContainer}
           handleFilterDropdown={handleFilterDropdown}
         />
         <FilterModule
@@ -66,6 +71,7 @@ export default function FilterPanel({
           filterToggle={filterToggle}
           filterCriteria={filterCriteria}
           showFilterContainer={showFilterContainer}
+          setShowFilterContainer={setShowFilterContainer}
           handleFilterDropdown={handleFilterDropdown}
         />
         <FilterModule
@@ -73,6 +79,7 @@ export default function FilterPanel({
           filterToggle={filterToggle}
           filterCriteria={filterCriteria}
           showFilterContainer={showFilterContainer}
+          setShowFilterContainer={setShowFilterContainer}
           handleFilterDropdown={handleFilterDropdown}
         />
         <FilterModule
@@ -80,6 +87,7 @@ export default function FilterPanel({
           filterToggle={filterToggle}
           filterCriteria={filterCriteria}
           showFilterContainer={showFilterContainer}
+          setShowFilterContainer={setShowFilterContainer}
           handleFilterDropdown={handleFilterDropdown}
         />
       </form>
@@ -89,7 +97,6 @@ export default function FilterPanel({
 
 function FilterModule(props) {
   const moduleName = props.name;
-
   //Import and reduce duplicates in array
   let outputArray = [];
   for (const obj of productData) {
@@ -112,7 +119,12 @@ function FilterModule(props) {
       <label>
         <h3>Filter by {moduleName}</h3>
       </label>
-      <div className="filter-container">
+      <div
+        className="filter-container"
+        onClick={(e) => {
+          props.handleFilterDropdown(e, moduleName);
+        }}
+      >
         <div className="selected-filter-container">
           <div className="filter-inner-container">
             {props.filterCriteria[moduleName].map((selected, index) => (
@@ -152,7 +164,7 @@ function FilterModule(props) {
           />
         </div>
       </div>
-      {props.showFilterContainer && (
+      {props.showFilterContainer[moduleName] && (
         <div className="filter-options-container">
           {filterArray.options.map((opt, index) => (
             <div key={index} className="filter-option">
@@ -160,7 +172,7 @@ function FilterModule(props) {
                 type="checkbox"
                 value={opt}
                 onClick={(e) => {
-                  props.filterToggle(e, moduleName, "input-dropdown");
+                  props.filterToggle(e, moduleName, "input-dropdown", index);
                 }}
               />
               <p>{opt}</p>

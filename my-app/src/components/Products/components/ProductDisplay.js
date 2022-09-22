@@ -6,6 +6,7 @@ import handleMouseOver from "../../Utils/Hover";
 export default function ProductDisplay({
   displayedProducts,
   addToCart,
+  addToFav,
   handleSizeBtnClick,
   sizeBtnSelected,
 }) {
@@ -56,6 +57,23 @@ export default function ProductDisplay({
             >
               <h5>Add to Cart</h5>
             </button>
+            <img
+              className="addtofav"
+              src={require("../../../../public/imgs/icons/" +
+                icons[4].source +
+                ".svg")}
+              alt={icons[4].name}
+              onClick={() => {
+                addToFav({
+                  id: product.id,
+                  designer: product.designer,
+                  productName: product.productName,
+                  img: product.img,
+                  price: product.price,
+                  quantity: 1,
+                });
+              }}
+            />
           </div>
         );
       })}
@@ -69,7 +87,15 @@ function ProductImgCarousel(Arr) {
 
   return (
     <div className="product-img">
-      {hoverText && <p className="product-description">{Arr.description}</p>}
+      {hoverText && (
+        <p
+          className="product-description"
+          onMouseOver={() => handleMouseOver("over", setHoverText)}
+          onMouseOut={() => handleMouseOver("out", setHoverText)}
+        >
+          {Arr.description}
+        </p>
+      )}
       <div
         className="banner-nav left"
         onClick={() => handleCarouselClick("prev", setIndex, Arr.imgs)}

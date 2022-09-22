@@ -1,20 +1,43 @@
 import { React, useState } from "react";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import ShoppingCart from "../ShoppingCart/ShoppingCart";
+import ShoppingCart from "../Navigation/components/ShoppingCart";
+import Favorites from "../Navigation/components/Favorites";
 import icons from "../Utils/icons.json";
 import useOutsideClick from "../Utils/OutsideClick";
 
 export default function Navbar({
   userCart,
   setUserCart,
+  userFav,
+  setUserFav,
   isMobile,
   userTotal,
   setUserTotal,
 }) {
   const [cartShown, setCartShown] = useState(false);
   const [cartCount, setCartCount] = useState(0);
-
+  const [favShown, setFavShown] = useState(false);
+  console.log(userFav);
+  //Navbar Menu Toggles
+  const handleNavMenuToggle = (e, toggle) => {
+    if (toggle === "shoppingcart") {
+      if (!favShown) {
+        setCartShown(!cartShown);
+      } else {
+        setFavShown(!favShown);
+        setCartShown(!cartShown);
+      }
+    } else if (toggle === "favorites") {
+      if (!cartShown) {
+        setFavShown(!favShown);
+      } else {
+        setFavShown(!favShown);
+        setCartShown(!cartShown);
+      }
+    }
+  };
+  console.log(userFav);
   //Update User Cart Details
   useEffect(() => {
     let count = 0;
@@ -35,23 +58,25 @@ export default function Navbar({
       <div className="icon-container">
         <div className="navbar-header">
           <div className="cart-icon">
-            <img
+            <img //Shopping Cart
               src={require("../../../public/imgs/icons/" +
                 icons[10].source +
                 ".svg")}
               alt={icons[10].source}
-              onClick={() => setCartShown(!cartShown)}
+              onClick={(e) => handleNavMenuToggle(e, "shoppingcart")}
             />
           </div>
           <div className="cart-num">{cartCount}</div>
-          <img
+          <img //Favorites
             src={require("../../../public/imgs/icons/" +
               icons[5].source +
               ".svg")}
             alt={icons[5].source}
+            onClick={(e) => handleNavMenuToggle(e, "favorites")}
           />
         </div>
       </div>
+      {favShown && <Favorites userFav={userFav} setUserFav={setUserFav} />}
       {cartShown && (
         <ShoppingCart
           userCart={userCart}

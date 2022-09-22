@@ -9,9 +9,9 @@
   .headline-article,
   .article,
   .artist-container-1,
-  .artist-container-2 {
-    display: flex;
-    flex-direction: column;
+  .artist-container-2,
+  .product-container {
+    @include a.flexColumn;
     align-items: center;
   }
 
@@ -36,6 +36,12 @@
     padding-left: 1rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+  }
+
+  .menutab {
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
   }
 
   #frontpage-selection,
@@ -94,5 +100,15 @@
 
   .article-content {
     margin-top: 0.5rem;
+  }
+
+  .filterpanel-container {
+    padding: 0;
+    border: none;
+    width: 100%;
+  }
+
+  .display-container {
+    padding: 0;
   }
 }

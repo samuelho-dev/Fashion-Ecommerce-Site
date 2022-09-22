@@ -76,4 +76,10 @@
   top: 20%;
   margin-left: 1rem;
   margin-right: 1rem;
+  user-select: none;
+}
+
+.product-description:hover {
+  background-color: a.$white;
+  font-weight: bold;
 }

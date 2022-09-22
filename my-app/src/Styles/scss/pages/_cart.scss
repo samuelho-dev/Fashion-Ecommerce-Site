@@ -1,15 +1,15 @@
 @use "../abstracts" as a;
 
-.shoppingcart {
+.menutab {
   z-index: 99;
   position: absolute;
   background: a.$white;
-  border: 1px solid black;
+  border: 1px solid a.$md-black-line;
   right: 0;
   height: fit-content;
   width: 20rem;
   padding: 1rem;
-  border-radius: 2%;
+  border-radius: 0 0 0 2rem;
 }
 
 .cartheader {
@@ -31,13 +31,26 @@
   border-bottom: 1px solid a.$md-black-line;
 }
 
-.price-container {
+.product-infotext {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   text-align: right;
 }
 
+.item-infotext-container {
+  @include a.flexColumn;
+  align-items: flex-end;
+}
+
+.item-infotext-container h4 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.item-infotext-container p {
+  font-size: 0.8rem;
+}
 .cartBtns {
   display: flex;
   flex-direction: row;

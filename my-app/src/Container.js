@@ -13,11 +13,13 @@ import Footer from "./components/Navigation/Footer";
 export default function Container() {
   const [windowDimension, setWindowDimension] = useState(null);
   const [userCart, setUserCart] = useState([]);
+  const [userFav, setUserFav] = useState([]);
   const [userTotal, setUserTotal] = useState({
     subtotal: "",
     tax: "",
     total: "",
   });
+  console.log(userFav);
 
   useEffect(() => {
     setWindowDimension(window.innerWidth);
@@ -41,6 +43,8 @@ export default function Container() {
         setUserTotal={setUserTotal}
         userCart={userCart}
         setUserCart={setUserCart}
+        userFav={userFav}
+        setUserFav={setUserFav}
         isMobile={isMobile}
       />
       <div className="container" id="main">
@@ -51,7 +55,14 @@ export default function Container() {
           <Route path="designers" element={<Designers />} />
           <Route
             path="products"
-            element={<Products userCart={userCart} setUserCart={setUserCart} />}
+            element={
+              <Products
+                userCart={userCart}
+                setUserCart={setUserCart}
+                userFav={userFav}
+                setUserFav={setUserFav}
+              />
+            }
           />
           <Route path="articles" element={<Articles />} />
           <Route path="contact" element={<Contact />} />

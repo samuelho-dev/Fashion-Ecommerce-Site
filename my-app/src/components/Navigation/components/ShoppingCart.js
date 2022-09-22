@@ -1,5 +1,5 @@
 import { React } from "react";
-import icons from "../Utils/icons.json";
+import icons from "../../Utils/icons.json";
 
 export default function ShoppingCart({ userCart, setUserCart, userTotal }) {
   let updatedCart = [...userCart];
@@ -17,7 +17,7 @@ export default function ShoppingCart({ userCart, setUserCart, userTotal }) {
   }
   return (
     <div className="cartposition">
-      <div className="shoppingcart">
+      <div className="menutab">
         <div className="cartheader">
           <h3>Your Cart</h3>
         </div>
@@ -28,9 +28,11 @@ export default function ShoppingCart({ userCart, setUserCart, userTotal }) {
         />
         <div className="cartcenter">
           <div className="checkout-container">
-            <h5>Subtotal : ${userTotal.subtotal.toLocaleString()}</h5>
-            <h5>Tax : ${userTotal.tax.toLocaleString()}</h5>
-            <h4>Your total is ${userTotal.total.toLocaleString()}</h4>
+            <div className="item-infotext-container">
+              <p>Subtotal : ${userTotal.subtotal.toLocaleString()}</p>
+              <p>Tax : ${userTotal.tax.toLocaleString()}</p>
+              <h4>Your total is ${userTotal.total.toLocaleString()}</h4>
+            </div>
             <button className="checkout-btn">
               <h5>Checkout</h5>
             </button>
@@ -53,14 +55,14 @@ function ShoppingItem({ userCart, itemPrice, removeFromCart }) {
           return (
             <div className="item-container" key={userCartIndex}>
               <div className="item-details">
-                <img
-                  src={require("../../../public/imgs/" +
+                <img //PRODUCT IMAGE
+                  src={require("../../../../public/imgs/" +
                     product.img[0] +
                     ".png")}
                   alt={product.productName.toUpperCase()}
                 />
               </div>
-              <div className="price-container">
+              <div className="product-infotext">
                 <h5>{product.designer.toUpperCase()}</h5>
                 <p>
                   {product.productName.toUpperCase()} -{" "}
@@ -68,8 +70,8 @@ function ShoppingItem({ userCart, itemPrice, removeFromCart }) {
                 </p>
                 <div className="price">
                   <div className="cartBtns">
-                    <img
-                      src={require("../../../public/imgs/icons/" +
+                    <img //TRASH ICON
+                      src={require("../../../../public/imgs/icons/" +
                         icons[12].source +
                         ".svg")}
                       alt={product.productName}

@@ -3,16 +3,25 @@ import productData from "./productdata.json";
 import FilterPanel from "./components/FilterPanel";
 import ProductDisplay from "./components/ProductDisplay";
 
-export default function Products({ userCart, setUserCart }) {
-  const [filterCriteria, setFilterCriteria] = useState({
+export default function Products({
+  userCart,
+  setUserCart,
+  userFav,
+  setUserFav,
+}) {
+  const filterCriteriaInitialState = {
     designer: [],
     sizes: [],
     color: [],
     category: [],
-  });
+  };
+  const [filterCriteria, setFilterCriteria] = useState(
+    filterCriteriaInitialState
+  );
   console.log(filterCriteria);
 
   const [displayedProducts, setDisplayedProducts] = useState(productData);
+  const [sizeBtnSelected, setSizeBtnSelected] = useState(0);
 
   let count = 0;
   const filter = () => {
@@ -43,8 +52,18 @@ export default function Products({ userCart, setUserCart }) {
       setDisplayedProducts(productsByKey);
     }
   };
-  //ADD TO CART FUNCTIONALITY
-  const [sizeBtnSelected, setSizeBtnSelected] = useState(0);
+  //ADD TO FAVORITES
+  function addToFav(obj) {
+    console.log(obj);
+    const foundID = userFav.find((favItem) => favItem.id === obj.id);
+    console.log(foundID);
+    if (!foundID) {
+      setUserFav((prev) => [...prev, obj]);
+    } else {
+      alert("Item is already in your favorites");
+    }
+  }
+  //ADD TO CART
   function addToCart(obj) {
     //if id of userSelected != id of obj.id
     //return error - select a size
@@ -75,12 +94,16 @@ export default function Products({ userCart, setUserCart }) {
             filterCriteria={filterCriteria}
             setFilterCriteria={setFilterCriteria}
             filter={filter}
+            filterCriteriaInitialState={filterCriteriaInitialState}
           />
           <ProductDisplay
             displayedProducts={displayedProducts}
-            userCart={userCart}
+            userCart={userCart} //CART
             setUserCart={setUserCart}
             addToCart={addToCart}
+            userFav={userFav} //FAVORITES
+            setUserFav={setUserFav}
+            addToFav={addToFav}
             handleSizeBtnClick={handleSizeBtnClick}
             sizeBtnSelected={sizeBtnSelected}
           />
