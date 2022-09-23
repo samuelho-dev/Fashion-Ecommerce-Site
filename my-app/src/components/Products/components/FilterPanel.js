@@ -102,21 +102,12 @@ function FilterModule(props) {
     [moduleName]: new Array(outputArray.length).fill(false),
   });
 
-  const handleFilterCheckbox = (e, moduleName, index) => {
-    let updatedCheckedFilter = { ...checkedFilter };
-    setCheckedFilter(!updatedCheckedFilter[moduleName][index]);
-  };
   return (
     <div className="filter">
       <label>
         <h3>Filter by {moduleName}</h3>
       </label>
-      <div
-        className="filter-container"
-        onClick={(e) => {
-          props.handleFilterDropdown(e, moduleName);
-        }}
-      >
+      <div className="filter-container">
         <div className="selected-filter-container">
           <div className="filter-inner-container">
             {props.filterCriteria[moduleName].map((selected, index) => (
@@ -129,8 +120,6 @@ function FilterModule(props) {
                   alt={icons[15].name}
                   onClick={(e) => {
                     props.filterToggle(e, moduleName, "input-delete", index);
-                    props.handleFilterDropdown(e, moduleName);
-                    handleFilterCheckbox(e, moduleName, index);
                   }}
                 />
               </div>

@@ -24,26 +24,27 @@ export default function Products({
   const [sizeBtnSelected, setSizeBtnSelected] = useState(0);
 
   const filter = () => {
-    let updatedDisplayedProducts = [];
-    let count = 0;
-    for (const filterKey in filterCriteria) {
-      const currFilterArr = filterCriteria[filterKey];
-      count += currFilterArr.length;
-      if (count === 0) {
-        setDisplayedProducts(productData);
-      } else {
-        updatedDisplayedProducts = productData.filter((obj) => {
-          if (filterKey === "sizes") {
-            return obj;
-          } else if (currFilterArr.includes(obj[filterKey])) {
-            return obj;
-          }
-        });
-        setDisplayedProducts(updatedDisplayedProducts);
-        console.log(displayedProducts);
-        console.log(updatedDisplayedProducts);
-      }
-    }
+    // let updatedDisplayedProducts = [];
+    // let count = 0;
+    // for (const filterKey in filterCriteria) {
+    //   const currFilterArr = filterCriteria[filterKey];
+    //   count += currFilterArr.length;
+    //   if (count === 0) {
+    //     setDisplayedProducts(productData);
+    //   } else {
+    //     updatedDisplayedProducts = productData.filter((obj) => {
+    //       if (filterKey === "sizes") {
+    //         return obj;
+    //       } else if (currFilterArr.includes(obj[filterKey])) {
+    //         return obj;
+    //       }
+    //     });
+    //     setDisplayedProducts(updatedDisplayedProducts);
+    //     console.log(displayedProducts);
+    //     console.log(updatedDisplayedProducts);
+    //   }
+    // }
+    console.log("hello");
   };
   //ADD TO FAVORITES
   function addToFav(obj) {
