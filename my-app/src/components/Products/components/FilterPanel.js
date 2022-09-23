@@ -99,6 +99,24 @@ function FilterModule(props) {
   const moduleName = props.name;
   //Import and reduce duplicates in array
   let outputArray = [];
+
+  // [ 'S', 'M',  ] 
+  const tmp = productData
+    .map(s => s.sizes.map(i => i.toUpperCase()))
+    .reduce((accum, curr) => {
+      console.log({ accum, curr });
+      if (accum.length === 0) { return [ ...curr ] }
+      const newArr = Array.from(new Set([ ...accum, ...curr ]));
+      return newArr;
+    }, []);
+
+  const tmp2 = productData
+    .map(p => p.designer)
+    .reduce((accum, curr) => {
+      if (accum.length === 0) return [ curr ];
+      return Array.from(new Set([ ...accum, curr ]))
+    }, []);
+
   for (const obj of productData) {
     if (moduleName === "sizes") {
       obj[moduleName].forEach((el) => {
@@ -112,6 +130,9 @@ function FilterModule(props) {
       }
     }
   }
+
+  console.log({ tmp, tmp2 });
+
   //defined array output
   let filterArray = { moduleName: moduleName, options: outputArray };
   return (
