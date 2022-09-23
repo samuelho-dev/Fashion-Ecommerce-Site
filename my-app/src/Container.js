@@ -19,7 +19,6 @@ export default function Container() {
     tax: "",
     total: "",
   });
-  console.log(userFav);
 
   useEffect(() => {
     setWindowDimension(window.innerWidth);
@@ -35,7 +34,6 @@ export default function Container() {
   }, []);
 
   const isMobile = windowDimension <= 1200;
-  console.log(isMobile);
   return (
     <>
       <Navbar

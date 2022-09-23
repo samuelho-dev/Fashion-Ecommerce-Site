@@ -3,11 +3,12 @@ import productData from "../productdata.json";
 import icons from "../../Utils/icons.json";
 
 //Filter Categories
+
 export default function FilterPanel({
   filterCriteria,
   setFilterCriteria,
-  filter,
   filterCriteriaInitialState,
+  filter,
 }) {
   const [showFilterContainer, setShowFilterContainer] = useState({
     designer: false,
@@ -16,13 +17,16 @@ export default function FilterPanel({
     category: false,
   });
   const [checkedFilter, setCheckedFilter] = useState({});
+
+  console.log(checkedFilter);
+  const moduleNames = ["designer", "sizes", "color", "category"];
+
   const handleFilterDropdown = (e, moduleName) => {
     let updatedshowFilterContainer = { ...showFilterContainer };
     setShowFilterContainer({
       [moduleName]: !updatedshowFilterContainer[moduleName],
     });
   };
-  console.log(checkedFilter);
 
   const filterToggle = (e, moduleName, functionType, index) => {
     let updatedFilter = { ...filterCriteria };
@@ -51,45 +55,25 @@ export default function FilterPanel({
       updatedFilter[moduleName] = filterCriteriaInitialState[moduleName];
     }
     setFilterCriteria(updatedFilter);
-    setCheckedFilter(!checkedFilter[moduleName][index]);
+    filter();
   };
 
   return (
     <div className="filterpanel-container">
       <form>
         {/* Filter by Price */}
-        <FilterModule
-          name="designer"
-          filterToggle={filterToggle}
-          filterCriteria={filterCriteria}
-          showFilterContainer={showFilterContainer}
-          setShowFilterContainer={setShowFilterContainer}
-          handleFilterDropdown={handleFilterDropdown}
-        />
-        <FilterModule
-          name="sizes"
-          filterToggle={filterToggle}
-          filterCriteria={filterCriteria}
-          showFilterContainer={showFilterContainer}
-          setShowFilterContainer={setShowFilterContainer}
-          handleFilterDropdown={handleFilterDropdown}
-        />
-        <FilterModule
-          name="color"
-          filterToggle={filterToggle}
-          filterCriteria={filterCriteria}
-          showFilterContainer={showFilterContainer}
-          setShowFilterContainer={setShowFilterContainer}
-          handleFilterDropdown={handleFilterDropdown}
-        />
-        <FilterModule
-          name="category"
-          filterToggle={filterToggle}
-          filterCriteria={filterCriteria}
-          showFilterContainer={showFilterContainer}
-          setShowFilterContainer={setShowFilterContainer}
-          handleFilterDropdown={handleFilterDropdown}
-        />
+        {moduleNames.map((module) => {
+          return (
+            <FilterModule
+              name={module}
+              filterToggle={filterToggle}
+              filterCriteria={filterCriteria}
+              showFilterContainer={showFilterContainer}
+              setShowFilterContainer={setShowFilterContainer}
+              handleFilterDropdown={handleFilterDropdown}
+            />
+          );
+        })}
       </form>
     </div>
   );
@@ -114,6 +98,14 @@ function FilterModule(props) {
   }
   //defined array output
   let filterArray = { moduleName: moduleName, options: outputArray };
+  const [checkedFilter, setCheckedFilter] = useState({
+    [moduleName]: new Array(outputArray.length).fill(false),
+  });
+
+  const handleFilterCheckbox = (e, moduleName, index) => {
+    let updatedCheckedFilter = { ...checkedFilter };
+    setCheckedFilter(!updatedCheckedFilter[moduleName][index]);
+  };
   return (
     <div className="filter">
       <label>
@@ -137,6 +129,8 @@ function FilterModule(props) {
                   alt={icons[15].name}
                   onClick={(e) => {
                     props.filterToggle(e, moduleName, "input-delete", index);
+                    props.handleFilterDropdown(e, moduleName);
+                    handleFilterCheckbox(e, moduleName, index);
                   }}
                 />
               </div>

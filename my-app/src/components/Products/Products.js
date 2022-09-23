@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import productData from "./productdata.json";
 import FilterPanel from "./components/FilterPanel";
 import ProductDisplay from "./components/ProductDisplay";
@@ -23,33 +23,26 @@ export default function Products({
   const [displayedProducts, setDisplayedProducts] = useState(productData);
   const [sizeBtnSelected, setSizeBtnSelected] = useState(0);
 
-  let count = 0;
   const filter = () => {
+    let updatedDisplayedProducts = [];
+    let count = 0;
     for (const filterKey in filterCriteria) {
-      count += filterCriteria[filterKey].length;
-    }
-    console.log(count);
-    if (count === 0) {
-      setDisplayedProducts(productData);
-    } else {
-      let productsByKey = productData.filter((item) => {
-        for (const filterKey in filterCriteria) {
-          const currFilterArr = filterCriteria[filterKey];
-          for (let i = 0; currFilterArr.length; i++) {
-            const currFilter = currFilterArr[i];
-            const currItem = item[filterKey].toUpperCase();
-            // console.log(currFilter);
-            // console.log(currItem);
-            return currItem === currFilter;
+      const currFilterArr = filterCriteria[filterKey];
+      count += currFilterArr.length;
+      if (count === 0) {
+        setDisplayedProducts(productData);
+      } else {
+        updatedDisplayedProducts = productData.filter((obj) => {
+          if (filterKey === "sizes") {
+            return obj;
+          } else if (currFilterArr.includes(obj[filterKey])) {
+            return obj;
           }
-        }
-        return item;
-      });
-      console.log(productsByKey);
-      // setDisplayedProducts((prevState) => {
-      //   return [...prevState, ...productsByKey];
-      // });
-      setDisplayedProducts(productsByKey);
+        });
+        setDisplayedProducts(updatedDisplayedProducts);
+        console.log(displayedProducts);
+        console.log(updatedDisplayedProducts);
+      }
     }
   };
   //ADD TO FAVORITES
@@ -93,8 +86,8 @@ export default function Products({
             products={productData}
             filterCriteria={filterCriteria}
             setFilterCriteria={setFilterCriteria}
-            filter={filter}
             filterCriteriaInitialState={filterCriteriaInitialState}
+            filter={filter}
           />
           <ProductDisplay
             displayedProducts={displayedProducts}
