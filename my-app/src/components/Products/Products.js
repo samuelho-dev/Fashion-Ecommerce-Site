@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import productData from "./productdata.json";
 import FilterPanel from "./components/FilterPanel";
 import ProductDisplay from "./components/ProductDisplay";
@@ -23,29 +23,29 @@ export default function Products({
   const [displayedProducts, setDisplayedProducts] = useState(productData);
   const [sizeBtnSelected, setSizeBtnSelected] = useState(0);
 
-  const filter = () => {
-    // let updatedDisplayedProducts = [];
-    // let count = 0;
-    // for (const filterKey in filterCriteria) {
-    //   const currFilterArr = filterCriteria[filterKey];
-    //   count += currFilterArr.length;
-    //   if (count === 0) {
-    //     setDisplayedProducts(productData);
-    //   } else {
-    //     updatedDisplayedProducts = productData.filter((obj) => {
-    //       if (filterKey === "sizes") {
-    //         return obj;
-    //       } else if (currFilterArr.includes(obj[filterKey])) {
-    //         return obj;
-    //       }
-    //     });
-    //     setDisplayedProducts(updatedDisplayedProducts);
-    //     console.log(displayedProducts);
-    //     console.log(updatedDisplayedProducts);
-    //   }
-    // }
-    console.log("hello");
+  const filter = (filterCriteria) => {
+    const checkMatch = (product) => {
+      let result = true;
+      for (const key in filterCriteria) {
+        if (filterCriteria[key].length === 0) continue;
+        console.log(filterCriteria[key]);
+        console.log(product[key]);
+        const match =
+          key === "sizes"
+            ? filterCriteria[key].some((v) => product[key].includes(v))
+            : filterCriteria[key].includes(product[key].toUpperCase());
+        if (!match) return false;
+        console.log(match);
+        result = match && result;
+      }
+      return result;
+    };
+    const updatedDisplayedProducts = productData.filter((singleProduct) =>
+      checkMatch(singleProduct)
+    );
+    setDisplayedProducts(updatedDisplayedProducts);
   };
+
   //ADD TO FAVORITES
   function addToFav(obj) {
     console.log(obj);

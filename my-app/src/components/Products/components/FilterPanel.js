@@ -11,15 +11,41 @@ export default function FilterPanel({
   filter,
 }) {
   const [showFilterContainer, setShowFilterContainer] = useState({
+    //FILTER DROPDOWN
     designer: false,
     sizes: false,
     color: false,
     category: false,
   });
-  const [checkedFilter, setCheckedFilter] = useState({});
 
-  console.log(checkedFilter);
-  const moduleNames = ["designer", "sizes", "color", "category"];
+  const moduleOptions = {
+    //FOR MODULE OPTIONS AND CHECKBOX
+    designer: { option: [], checkbox: [] },
+    sizes: { option: [], checkbox: [] },
+    color: { option: [], checkbox: [] },
+    category: { option: [], checkbox: [] },
+  };
+
+  for (const obj of productData) {
+    for (const module in moduleOptions) {
+      if (module === "sizes") {
+        obj[module].forEach((el) => {
+          if (!moduleOptions[module].option.includes(el.toUpperCase())) {
+            moduleOptions[module].option.push(el);
+          }
+        });
+      } else {
+        if (!moduleOptions[module].option.includes(obj[module].toUpperCase())) {
+          moduleOptions[module].option.push(obj[module].toUpperCase());
+        }
+      }
+      const checkBox = new Array(moduleOptions[module].option.length).fill(
+        false
+      );
+      moduleOptions[module].checkbox = checkBox;
+    }
+  }
+  console.log(moduleOptions);
 
   const handleFilterDropdown = (e, moduleName) => {
     let updatedshowFilterContainer = { ...showFilterContainer };
@@ -30,7 +56,6 @@ export default function FilterPanel({
 
   const filterToggle = (e, moduleName, functionType, index) => {
     let updatedFilter = { ...filterCriteria };
-    console.log(index);
     //Loop --- duplicate
     if (functionType === "input-dropdown") {
       for (const key in updatedFilter) {
@@ -55,74 +80,54 @@ export default function FilterPanel({
       updatedFilter[moduleName] = filterCriteriaInitialState[moduleName];
     }
     setFilterCriteria(updatedFilter);
-    filter();
+    filter(updatedFilter);
   };
 
   return (
     <div className="filterpanel-container">
-      <form>
-        {/* Filter by Price */}
-        {moduleNames.map((module) => {
-          return (
-            <FilterModule
-              name={module}
-              filterToggle={filterToggle}
-              filterCriteria={filterCriteria}
-              showFilterContainer={showFilterContainer}
-              setShowFilterContainer={setShowFilterContainer}
-              handleFilterDropdown={handleFilterDropdown}
-            />
-          );
-        })}
-      </form>
+      {/* Filter by Price */}
+      {Object.keys(moduleOptions).map((module) => {
+        return (
+          <FilterModule
+            name={module}
+            filterToggle={filterToggle}
+            filterCriteria={filterCriteria}
+            moduleOptions={moduleOptions}
+            showFilterContainer={showFilterContainer}
+            setShowFilterContainer={setShowFilterContainer}
+            handleFilterDropdown={handleFilterDropdown}
+          />
+        );
+      })}
     </div>
   );
 }
 
 function FilterModule(props) {
   const moduleName = props.name;
-  //Import and reduce duplicates in array
-  let outputArray = [];
+  const defaultCheckedState = props.moduleOptions[moduleName].checkbox;
+  const [checked, setChecked] = useState(defaultCheckedState);
 
-  // [ 'S', 'M',  ] 
-  const tmp = productData
-    .map(s => s.sizes.map(i => i.toUpperCase()))
-    .reduce((accum, curr) => {
-      console.log({ accum, curr });
-      if (accum.length === 0) { return [ ...curr ] }
-      const newArr = Array.from(new Set([ ...accum, ...curr ]));
-      return newArr;
-    }, []);
-
-  const tmp2 = productData
-    .map(p => p.designer)
-    .reduce((accum, curr) => {
-      if (accum.length === 0) return [ curr ];
-      return Array.from(new Set([ ...accum, curr ]))
-    }, []);
-
-  for (const obj of productData) {
-    if (moduleName === "sizes") {
-      obj[moduleName].forEach((el) => {
-        if (!outputArray.includes(el.toUpperCase())) {
-          outputArray.push(el);
+  const inputDelete = (event, selected, functionType) => {
+    let checkboxIndex;
+    if (functionType === "item") {
+      for (let i = 0; i < defaultCheckedState.length; i++) {
+        if (props.moduleOptions[moduleName].option[i] === selected) {
+          checkboxIndex = i;
+          console.log(checkboxIndex);
         }
-      });
-    } else {
-      if (!outputArray.includes(obj[moduleName].toUpperCase())) {
-        outputArray.push(obj[moduleName].toUpperCase());
       }
+      console.log(checkboxIndex);
+      setChecked((prevState) =>
+        prevState.map((checkbox, i) =>
+          i === checkboxIndex ? !checkbox : checkbox
+        )
+      );
+    } else if (functionType === "clear-all") {
+      setChecked(defaultCheckedState);
     }
-  }
-
-  console.log({ tmp, tmp2 });
-
-  //defined array output
-  let filterArray = { moduleName: moduleName, options: outputArray };
-  const [checkedFilter, setCheckedFilter] = useState({
-    [moduleName]: new Array(outputArray.length).fill(false),
-  });
-
+  };
+  console.log(checked);
   return (
     <div className="filter">
       <label>
@@ -141,6 +146,7 @@ function FilterModule(props) {
                   alt={icons[15].name}
                   onClick={(e) => {
                     props.filterToggle(e, moduleName, "input-delete", index);
+                    inputDelete(e, selected, "item");
                   }}
                 />
               </div>
@@ -155,6 +161,7 @@ function FilterModule(props) {
             alt={icons[16].name}
             onClick={(e) => {
               props.filterToggle(e, moduleName, "input-reset");
+              inputDelete(e, null, "clear-all");
             }}
           />
           <img //Chevron Down Grey
@@ -170,13 +177,15 @@ function FilterModule(props) {
       </div>
       {props.showFilterContainer[moduleName] && (
         <div className="filter-options-container">
-          {filterArray.options.map((opt, index) => (
+          {props.moduleOptions[moduleName].option.map((opt, index) => (
             <div key={index} className="filter-option">
               <input //Filter options
                 type="checkbox"
                 value={opt}
-                onClick={(e) => {
+                checked={checked[index]}
+                onChange={(e) => {
                   props.filterToggle(e, moduleName, "input-dropdown", index);
+                  inputDelete(e, opt, "item");
                 }}
               />
               <p>{opt}</p>

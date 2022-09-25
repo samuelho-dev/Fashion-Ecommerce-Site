@@ -45,6 +45,7 @@ export default function Frontpage() {
               </div>
             );
           }
+          return <></>;
         })}
       </section>
       <section>

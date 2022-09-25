@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import ShoppingCart from "../Navigation/components/ShoppingCart";
 import Favorites from "../Navigation/components/Favorites";
 import icons from "../Utils/icons.json";
-import useOutsideClick from "../Utils/OutsideClick";
 
 export default function Navbar({
   userCart,

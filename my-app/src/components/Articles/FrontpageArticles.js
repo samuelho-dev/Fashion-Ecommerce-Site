@@ -16,6 +16,7 @@ export default function Articles() {
         </div>
       );
     }
+    return <></>;
   });
   return (
     <div className="article-container">
