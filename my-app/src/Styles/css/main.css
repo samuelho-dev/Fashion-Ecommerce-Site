@@ -590,6 +590,7 @@ button.hover {
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  padding: 0;
 }
 
 .cart-num {
