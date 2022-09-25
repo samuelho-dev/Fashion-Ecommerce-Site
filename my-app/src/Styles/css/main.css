@@ -1213,6 +1213,9 @@ button.hover {
     width: 100%;
   }
   .display-container {
-    padding: 0;
+    padding-left: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
   }
 }/*# sourceMappingURL=main.css.map */
