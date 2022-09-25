@@ -114,4 +114,8 @@
     padding-bottom: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
   }
+
+  .carousel-link {
+    flex-direction: column;
+  }
 }

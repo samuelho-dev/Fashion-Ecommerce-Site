@@ -13,7 +13,7 @@ export default function Banner() {
           className="banner-nav left"
           onClick={() => handleCarouselClick("prev", setIndex, banners)}
         >
-          <img
+          <img //BUTTON
             src={require("../../../public/imgs/icons/" +
               icons[0].source +
               ".svg")}
@@ -25,7 +25,7 @@ export default function Banner() {
           className="banner-nav right"
           onClick={() => handleCarouselClick("next", setIndex, banners)}
         >
-          <img
+          <img //BUTTON
             src={require("../../../public/imgs/icons/" +
               icons[1].source +
               ".svg")}
@@ -33,15 +33,17 @@ export default function Banner() {
             className="carousel-button next"
           />
         </div>
-        <img
-          className="carousel-img"
-          src={require("../../../public/imgs/" + banners[index].img + ".png")}
-          alt={banners[index].title}
-        />
-        <div className="bannerinfo-container">
-          <p className="banner-title">{banners[index].title}</p>
-          <p className="banner-description">{banners[index].btntext}</p>
-        </div>
+        <a href="products" className="carousel-link">
+          <img
+            className="carousel-img"
+            src={require("../../../public/imgs/" + banners[index].img + ".png")}
+            alt={banners[index].title}
+          />
+          <div className="bannerinfo-container">
+            <p className="banner-title">{banners[index].title}</p>
+            <p className="banner-description">{banners[index].btntext}</p>
+          </div>
+        </a>
       </div>
     </section>
   );
